@@ -1,0 +1,1312 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "1.2.0",
+  "id": "rectangular_01",
+  "mode": "rectangular",
+  "title": "折返农场",
+  "designSize": [
+    600,
+    900
+  ],
+  "ruleConfig": "config/rules.v1.json",
+  "backgroundAssetKey": "background.farm",
+  "boardAssetKey": "board.rectangular",
+  "waitingPositions": [
+    [
+      100,
+      300
+    ],
+    [
+      200,
+      300
+    ],
+    [
+      300,
+      300
+    ],
+    [
+      400,
+      300
+    ],
+    [
+      500,
+      300
+    ]
+  ],
+  "parkingColumnX": [
+    195,
+    300,
+    405
+  ],
+  "parkingRowY": [
+    198,
+    120,
+    42
+  ],
+  "goal": {
+    "type": "collect_all_fruit_including_entrances"
+  },
+  "tutorial": "横向连续收同色，异色阻挡；未满到终点回等待槽。",
+  "road": {
+    "type": "open_polyline",
+    "points": [
+      [
+        452,
+        390
+      ],
+      [
+        172,
+        590
+      ],
+      [
+        452,
+        790
+      ]
+    ],
+    "width": 52,
+    "direction": "forward",
+    "lapDurationSeconds": 10,
+    "outerBoundary": {
+      "left": 68,
+      "right": 532,
+      "bottom": 360,
+      "top": 810
+    }
+  },
+  "board": {
+    "type": "direct_contact_chains",
+    "chains": [
+      {
+        "id": "r_row0_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          341.0,
+          415
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.0625,
+        "slots": [
+          {
+            "id": "r_row0_left_slot_0",
+            "depth": 0,
+            "center": [
+              319.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_0",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row0_left_slot_1",
+            "depth": 1,
+            "center": [
+              275.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_1",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row0_left_slot_2",
+            "depth": 2,
+            "center": [
+              231.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_2",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row0_left_slot_3",
+            "depth": 3,
+            "center": [
+              187.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_3",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row0_left_slot_4",
+            "depth": 4,
+            "center": [
+              143.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_4",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row0_left_slot_5",
+            "depth": 5,
+            "center": [
+              99.0,
+              415
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row0_left_fruit_5",
+              "color": "orange"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row1_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          271.0,
+          465
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.1875,
+        "slots": [
+          {
+            "id": "r_row1_left_slot_0",
+            "depth": 0,
+            "center": [
+              249.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_left_fruit_0",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row1_left_slot_1",
+            "depth": 1,
+            "center": [
+              205.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_left_fruit_1",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row1_left_slot_2",
+            "depth": 2,
+            "center": [
+              161.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_left_fruit_2",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row1_left_slot_3",
+            "depth": 3,
+            "center": [
+              117.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_left_fruit_3",
+              "color": "green"
+            }
+          }
+        ],
+        "entrance": {
+          "id": "r_row1_left_entrance",
+          "assetKey": "icon.entrance",
+          "position": [
+            71.0,
+            465
+          ],
+          "inwardDirection": [
+            1,
+            0
+          ],
+          "candidatePool": [
+            "green",
+            "yellow",
+            "orange",
+            "purple"
+          ],
+          "sequence": [
+            {
+              "id": "r_row1_left_spawn_0",
+              "color": "yellow"
+            },
+            {
+              "id": "r_row1_left_spawn_1",
+              "color": "orange"
+            },
+            {
+              "id": "r_row1_left_spawn_2",
+              "color": "purple"
+            },
+            {
+              "id": "r_row1_left_spawn_3",
+              "color": "green"
+            }
+          ]
+        }
+      },
+      {
+        "id": "r_row1_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          423.0,
+          465
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.1875,
+        "slots": [
+          {
+            "id": "r_row1_right_slot_0",
+            "depth": 0,
+            "center": [
+              445.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_right_fruit_0",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row1_right_slot_1",
+            "depth": 1,
+            "center": [
+              489.0,
+              465
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row1_right_fruit_1",
+              "color": "yellow"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row2_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          201.0,
+          515
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.3125,
+        "slots": [
+          {
+            "id": "r_row2_left_slot_0",
+            "depth": 0,
+            "center": [
+              179.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_left_fruit_0",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row2_left_slot_1",
+            "depth": 1,
+            "center": [
+              135.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_left_fruit_1",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row2_left_slot_2",
+            "depth": 2,
+            "center": [
+              91.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_left_fruit_2",
+              "color": "purple"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row2_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          353.0,
+          515
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.3125,
+        "slots": [
+          {
+            "id": "r_row2_right_slot_0",
+            "depth": 0,
+            "center": [
+              375.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_right_fruit_0",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row2_right_slot_1",
+            "depth": 1,
+            "center": [
+              419.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_right_fruit_1",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row2_right_slot_2",
+            "depth": 2,
+            "center": [
+              463.0,
+              515
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row2_right_fruit_2",
+              "color": "green"
+            }
+          }
+        ],
+        "entrance": {
+          "id": "r_row2_right_entrance",
+          "assetKey": "icon.entrance",
+          "position": [
+            509.0,
+            515
+          ],
+          "inwardDirection": [
+            -1,
+            0
+          ],
+          "candidatePool": [
+            "green",
+            "yellow",
+            "orange",
+            "purple"
+          ],
+          "sequence": [
+            {
+              "id": "r_row2_right_spawn_0",
+              "color": "orange"
+            },
+            {
+              "id": "r_row2_right_spawn_1",
+              "color": "purple"
+            },
+            {
+              "id": "r_row2_right_spawn_2",
+              "color": "green"
+            },
+            {
+              "id": "r_row2_right_spawn_3",
+              "color": "yellow"
+            }
+          ]
+        }
+      },
+      {
+        "id": "r_row3_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          131.0,
+          565
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.4375,
+        "slots": [
+          {
+            "id": "r_row3_left_slot_0",
+            "depth": 0,
+            "center": [
+              109.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_left_fruit_0",
+              "color": "yellow"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row3_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          283.0,
+          565
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.4375,
+        "slots": [
+          {
+            "id": "r_row3_right_slot_0",
+            "depth": 0,
+            "center": [
+              305.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_right_fruit_0",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row3_right_slot_1",
+            "depth": 1,
+            "center": [
+              349.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_right_fruit_1",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row3_right_slot_2",
+            "depth": 2,
+            "center": [
+              393.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_right_fruit_2",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row3_right_slot_3",
+            "depth": 3,
+            "center": [
+              437.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_right_fruit_3",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row3_right_slot_4",
+            "depth": 4,
+            "center": [
+              481.0,
+              565
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row3_right_fruit_4",
+              "color": "purple"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row4_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          131.0,
+          615
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.5625,
+        "slots": [
+          {
+            "id": "r_row4_left_slot_0",
+            "depth": 0,
+            "center": [
+              109.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_left_fruit_0",
+              "color": "green"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row4_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          283.0,
+          615
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.5625,
+        "slots": [
+          {
+            "id": "r_row4_right_slot_0",
+            "depth": 0,
+            "center": [
+              305.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_right_fruit_0",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row4_right_slot_1",
+            "depth": 1,
+            "center": [
+              349.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_right_fruit_1",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row4_right_slot_2",
+            "depth": 2,
+            "center": [
+              393.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_right_fruit_2",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row4_right_slot_3",
+            "depth": 3,
+            "center": [
+              437.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_right_fruit_3",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row4_right_slot_4",
+            "depth": 4,
+            "center": [
+              481.0,
+              615
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row4_right_fruit_4",
+              "color": "orange"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row5_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          201.0,
+          665
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.6875,
+        "slots": [
+          {
+            "id": "r_row5_left_slot_0",
+            "depth": 0,
+            "center": [
+              179.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_left_fruit_0",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row5_left_slot_1",
+            "depth": 1,
+            "center": [
+              135.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_left_fruit_1",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row5_left_slot_2",
+            "depth": 2,
+            "center": [
+              91.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_left_fruit_2",
+              "color": "green"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row5_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          353.0,
+          665
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.6875,
+        "slots": [
+          {
+            "id": "r_row5_right_slot_0",
+            "depth": 0,
+            "center": [
+              375.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_right_fruit_0",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row5_right_slot_1",
+            "depth": 1,
+            "center": [
+              419.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_right_fruit_1",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row5_right_slot_2",
+            "depth": 2,
+            "center": [
+              463.0,
+              665
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row5_right_fruit_2",
+              "color": "yellow"
+            }
+          }
+        ],
+        "entrance": {
+          "id": "r_row5_right_entrance",
+          "assetKey": "icon.entrance",
+          "position": [
+            509.0,
+            665
+          ],
+          "inwardDirection": [
+            -1,
+            0
+          ],
+          "candidatePool": [
+            "green",
+            "yellow",
+            "orange",
+            "purple"
+          ],
+          "sequence": [
+            {
+              "id": "r_row5_right_spawn_0",
+              "color": "yellow"
+            },
+            {
+              "id": "r_row5_right_spawn_1",
+              "color": "orange"
+            },
+            {
+              "id": "r_row5_right_spawn_2",
+              "color": "purple"
+            },
+            {
+              "id": "r_row5_right_spawn_3",
+              "color": "green"
+            }
+          ]
+        }
+      },
+      {
+        "id": "r_row6_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          271.0,
+          715
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.8125,
+        "slots": [
+          {
+            "id": "r_row6_left_slot_0",
+            "depth": 0,
+            "center": [
+              249.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_left_fruit_0",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row6_left_slot_1",
+            "depth": 1,
+            "center": [
+              205.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_left_fruit_1",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row6_left_slot_2",
+            "depth": 2,
+            "center": [
+              161.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_left_fruit_2",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row6_left_slot_3",
+            "depth": 3,
+            "center": [
+              117.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_left_fruit_3",
+              "color": "purple"
+            }
+          }
+        ],
+        "entrance": {
+          "id": "r_row6_left_entrance",
+          "assetKey": "icon.entrance",
+          "position": [
+            71.0,
+            715
+          ],
+          "inwardDirection": [
+            1,
+            0
+          ],
+          "candidatePool": [
+            "green",
+            "yellow",
+            "orange",
+            "purple"
+          ],
+          "sequence": [
+            {
+              "id": "r_row6_left_spawn_0",
+              "color": "orange"
+            },
+            {
+              "id": "r_row6_left_spawn_1",
+              "color": "purple"
+            },
+            {
+              "id": "r_row6_left_spawn_2",
+              "color": "green"
+            },
+            {
+              "id": "r_row6_left_spawn_3",
+              "color": "yellow"
+            }
+          ]
+        }
+      },
+      {
+        "id": "r_row6_right",
+        "region": "right",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          423.0,
+          715
+        ],
+        "outwardNormal": [
+          1,
+          0
+        ],
+        "contactProgress": 0.8125,
+        "slots": [
+          {
+            "id": "r_row6_right_slot_0",
+            "depth": 0,
+            "center": [
+              445.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_right_fruit_0",
+              "color": "green"
+            }
+          },
+          {
+            "id": "r_row6_right_slot_1",
+            "depth": 1,
+            "center": [
+              489.0,
+              715
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row6_right_fruit_1",
+              "color": "green"
+            }
+          }
+        ],
+        "entrance": null
+      },
+      {
+        "id": "r_row7_left",
+        "region": "left",
+        "slotOrder": "front_to_back",
+        "contactAnchor": [
+          341.0,
+          765
+        ],
+        "outwardNormal": [
+          -1,
+          0
+        ],
+        "contactProgress": 0.9375,
+        "slots": [
+          {
+            "id": "r_row7_left_slot_0",
+            "depth": 0,
+            "center": [
+              319.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_0",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row7_left_slot_1",
+            "depth": 1,
+            "center": [
+              275.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_1",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "r_row7_left_slot_2",
+            "depth": 2,
+            "center": [
+              231.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_2",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row7_left_slot_3",
+            "depth": 3,
+            "center": [
+              187.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_3",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "r_row7_left_slot_4",
+            "depth": 4,
+            "center": [
+              143.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_4",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "r_row7_left_slot_5",
+            "depth": 5,
+            "center": [
+              99.0,
+              765
+            ],
+            "size": [
+              44,
+              44
+            ],
+            "fruit": {
+              "id": "r_row7_left_fruit_5",
+              "color": "purple"
+            }
+          }
+        ],
+        "entrance": null
+      }
+    ]
+  },
+  "vehicles": [
+    {
+      "id": "r_green_s",
+      "color": "green",
+      "size": "small",
+      "capacity": 4,
+      "assetKey": "vehicle.green.small"
+    },
+    {
+      "id": "r_green_l",
+      "color": "green",
+      "size": "large",
+      "capacity": 12,
+      "assetKey": "vehicle.green.large"
+    },
+    {
+      "id": "r_yellow_s",
+      "color": "yellow",
+      "size": "small",
+      "capacity": 4,
+      "assetKey": "vehicle.yellow.small"
+    },
+    {
+      "id": "r_yellow_l",
+      "color": "yellow",
+      "size": "large",
+      "capacity": 12,
+      "assetKey": "vehicle.yellow.large"
+    },
+    {
+      "id": "r_orange_a",
+      "color": "orange",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.orange.medium"
+    },
+    {
+      "id": "r_orange_b",
+      "color": "orange",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.orange.medium"
+    },
+    {
+      "id": "r_purple_a",
+      "color": "purple",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.purple.medium"
+    },
+    {
+      "id": "r_purple_b",
+      "color": "purple",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.purple.medium"
+    }
+  ],
+  "parkingColumns": [
+    [
+      "r_green_s",
+      "r_orange_a",
+      "r_yellow_l"
+    ],
+    [
+      "r_yellow_s",
+      "r_purple_a",
+      "r_orange_b"
+    ],
+    [
+      "r_green_l",
+      "r_purple_b"
+    ]
+  ],
+  "expectedTotals": {
+    "initialFruit": 48,
+    "entranceFruit": 16,
+    "totalFruit": 64,
+    "byColor": {
+      "green": 16,
+      "yellow": 16,
+      "orange": 16,
+      "purple": 16
+    }
+  }
+}

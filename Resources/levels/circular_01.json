@@ -1,0 +1,1018 @@
+{
+  "schemaVersion": 1,
+  "rulesVersion": "1.2.0",
+  "id": "circular_01",
+  "mode": "circular",
+  "title": "环形农场",
+  "designSize": [
+    600,
+    900
+  ],
+  "ruleConfig": "config/rules.v1.json",
+  "backgroundAssetKey": "background.farm",
+  "boardAssetKey": "board.circular",
+  "waitingPositions": [
+    [
+      100,
+      300
+    ],
+    [
+      200,
+      300
+    ],
+    [
+      300,
+      300
+    ],
+    [
+      400,
+      300
+    ],
+    [
+      500,
+      300
+    ]
+  ],
+  "parkingColumnX": [
+    195,
+    300,
+    405
+  ],
+  "parkingRowY": [
+    198,
+    120,
+    42
+  ],
+  "goal": {
+    "type": "collect_all_fruit_including_entrances"
+  },
+  "tutorial": "先发小车，再用回场车辆继续收集外圈。",
+  "road": {
+    "type": "circle",
+    "center": [
+      300,
+      585
+    ],
+    "radius": 102,
+    "width": 38,
+    "startAngleDegrees": -90,
+    "direction": "clockwise",
+    "lapDurationSeconds": 10
+  },
+  "board": {
+    "type": "concentric_rings",
+    "rings": [
+      {
+        "layer": 0,
+        "radius": 135,
+        "slots": [
+          {
+            "id": "c_slot_0_00",
+            "slotIndex": 0,
+            "center": [
+              273.6628,
+              452.594
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 11.25,
+            "contactProgress": 0.03125,
+            "fruit": {
+              "id": "c_fruit_0_00",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_0_01",
+            "slotIndex": 1,
+            "center": [
+              224.998,
+              472.7516
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 33.75,
+            "contactProgress": 0.09375,
+            "fruit": {
+              "id": "c_fruit_0_01",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_0_02",
+            "slotIndex": 2,
+            "center": [
+              187.7516,
+              509.998
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 56.25,
+            "contactProgress": 0.15625,
+            "fruit": {
+              "id": "c_fruit_0_02",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_0_03",
+            "slotIndex": 3,
+            "center": [
+              167.594,
+              558.6628
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 78.75,
+            "contactProgress": 0.21875,
+            "fruit": {
+              "id": "c_fruit_0_03",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_0_04",
+            "slotIndex": 4,
+            "center": [
+              167.594,
+              611.3372
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 101.25,
+            "contactProgress": 0.28125,
+            "fruit": {
+              "id": "c_fruit_0_04",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_0_05",
+            "slotIndex": 5,
+            "center": [
+              187.7516,
+              660.002
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 123.75,
+            "contactProgress": 0.34375,
+            "fruit": {
+              "id": "c_fruit_0_05",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_0_06",
+            "slotIndex": 6,
+            "center": [
+              224.998,
+              697.2484
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 146.25,
+            "contactProgress": 0.40625,
+            "fruit": {
+              "id": "c_fruit_0_06",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_0_07",
+            "slotIndex": 7,
+            "center": [
+              273.6628,
+              717.406
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 168.75,
+            "contactProgress": 0.46875,
+            "fruit": {
+              "id": "c_fruit_0_07",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_0_08",
+            "slotIndex": 8,
+            "center": [
+              326.3372,
+              717.406
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 191.25,
+            "contactProgress": 0.53125,
+            "fruit": {
+              "id": "c_fruit_0_08",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_0_09",
+            "slotIndex": 9,
+            "center": [
+              375.002,
+              697.2484
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 213.75,
+            "contactProgress": 0.59375,
+            "fruit": {
+              "id": "c_fruit_0_09",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_0_10",
+            "slotIndex": 10,
+            "center": [
+              412.2484,
+              660.002
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 236.25,
+            "contactProgress": 0.65625,
+            "fruit": {
+              "id": "c_fruit_0_10",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_0_11",
+            "slotIndex": 11,
+            "center": [
+              432.406,
+              611.3372
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 258.75,
+            "contactProgress": 0.71875,
+            "fruit": {
+              "id": "c_fruit_0_11",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_0_12",
+            "slotIndex": 12,
+            "center": [
+              432.406,
+              558.6628
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 281.25,
+            "contactProgress": 0.78125,
+            "fruit": {
+              "id": "c_fruit_0_12",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_0_13",
+            "slotIndex": 13,
+            "center": [
+              412.2484,
+              509.998
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 303.75,
+            "contactProgress": 0.84375,
+            "fruit": {
+              "id": "c_fruit_0_13",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_0_14",
+            "slotIndex": 14,
+            "center": [
+              375.002,
+              472.7516
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 326.25,
+            "contactProgress": 0.90625,
+            "fruit": {
+              "id": "c_fruit_0_14",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_0_15",
+            "slotIndex": 15,
+            "center": [
+              326.3372,
+              452.594
+            ],
+            "size": [
+              28,
+              28
+            ],
+            "rotationDegrees": 348.75,
+            "contactProgress": 0.96875,
+            "fruit": {
+              "id": "c_fruit_0_15",
+              "color": "purple"
+            }
+          }
+        ]
+      },
+      {
+        "layer": 1,
+        "radius": 168,
+        "slots": [
+          {
+            "id": "c_slot_1_00",
+            "slotIndex": 0,
+            "center": [
+              267.2248,
+              420.2281
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 11.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_00",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_1_01",
+            "slotIndex": 1,
+            "center": [
+              206.6642,
+              445.3131
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 33.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_01",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_1_02",
+            "slotIndex": 2,
+            "center": [
+              160.3131,
+              491.6642
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 56.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_02",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_1_03",
+            "slotIndex": 3,
+            "center": [
+              135.2281,
+              552.2248
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 78.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_03",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_1_04",
+            "slotIndex": 4,
+            "center": [
+              135.2281,
+              617.7752
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 101.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_04",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_1_05",
+            "slotIndex": 5,
+            "center": [
+              160.3131,
+              678.3358
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 123.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_05",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_1_06",
+            "slotIndex": 6,
+            "center": [
+              206.6642,
+              724.6869
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 146.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_06",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_1_07",
+            "slotIndex": 7,
+            "center": [
+              267.2248,
+              749.7719
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 168.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_07",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_1_08",
+            "slotIndex": 8,
+            "center": [
+              332.7752,
+              749.7719
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 191.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_08",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_1_09",
+            "slotIndex": 9,
+            "center": [
+              393.3358,
+              724.6869
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 213.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_09",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_1_10",
+            "slotIndex": 10,
+            "center": [
+              439.6869,
+              678.3358
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 236.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_10",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_1_11",
+            "slotIndex": 11,
+            "center": [
+              464.7719,
+              617.7752
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 258.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_11",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_1_12",
+            "slotIndex": 12,
+            "center": [
+              464.7719,
+              552.2248
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 281.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_12",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_1_13",
+            "slotIndex": 13,
+            "center": [
+              439.6869,
+              491.6642
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 303.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_13",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_1_14",
+            "slotIndex": 14,
+            "center": [
+              393.3358,
+              445.3131
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 326.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_14",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_1_15",
+            "slotIndex": 15,
+            "center": [
+              332.7752,
+              420.2281
+            ],
+            "size": [
+              32,
+              32
+            ],
+            "rotationDegrees": 348.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_1_15",
+              "color": "orange"
+            }
+          }
+        ]
+      },
+      {
+        "layer": 2,
+        "radius": 204,
+        "slots": [
+          {
+            "id": "c_slot_2_00",
+            "slotIndex": 0,
+            "center": [
+              260.2016,
+              384.9198
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 11.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_00",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_2_01",
+            "slotIndex": 1,
+            "center": [
+              186.6637,
+              415.3802
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 33.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_01",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_2_02",
+            "slotIndex": 2,
+            "center": [
+              130.3802,
+              471.6637
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 56.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_02",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_2_03",
+            "slotIndex": 3,
+            "center": [
+              99.9198,
+              545.2016
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 78.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_03",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_2_04",
+            "slotIndex": 4,
+            "center": [
+              99.9198,
+              624.7984
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 101.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_04",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_2_05",
+            "slotIndex": 5,
+            "center": [
+              130.3802,
+              698.3363
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 123.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_05",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_2_06",
+            "slotIndex": 6,
+            "center": [
+              186.6637,
+              754.6198
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 146.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_06",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_2_07",
+            "slotIndex": 7,
+            "center": [
+              260.2016,
+              785.0802
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 168.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_07",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_2_08",
+            "slotIndex": 8,
+            "center": [
+              339.7984,
+              785.0802
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 191.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_08",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_2_09",
+            "slotIndex": 9,
+            "center": [
+              413.3363,
+              754.6198
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 213.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_09",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_2_10",
+            "slotIndex": 10,
+            "center": [
+              469.6198,
+              698.3363
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 236.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_10",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_2_11",
+            "slotIndex": 11,
+            "center": [
+              500.0802,
+              624.7984
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 258.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_11",
+              "color": "yellow"
+            }
+          },
+          {
+            "id": "c_slot_2_12",
+            "slotIndex": 12,
+            "center": [
+              500.0802,
+              545.2016
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 281.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_12",
+              "color": "purple"
+            }
+          },
+          {
+            "id": "c_slot_2_13",
+            "slotIndex": 13,
+            "center": [
+              469.6198,
+              471.6637
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 303.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_13",
+              "color": "orange"
+            }
+          },
+          {
+            "id": "c_slot_2_14",
+            "slotIndex": 14,
+            "center": [
+              413.3363,
+              415.3802
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 326.25,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_14",
+              "color": "green"
+            }
+          },
+          {
+            "id": "c_slot_2_15",
+            "slotIndex": 15,
+            "center": [
+              339.7984,
+              384.9198
+            ],
+            "size": [
+              36,
+              36
+            ],
+            "rotationDegrees": 348.75,
+            "contactProgress": null,
+            "fruit": {
+              "id": "c_fruit_2_15",
+              "color": "yellow"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "vehicles": [
+    {
+      "id": "c_green_s",
+      "color": "green",
+      "size": "small",
+      "capacity": 4,
+      "assetKey": "vehicle.green.small"
+    },
+    {
+      "id": "c_green_m",
+      "color": "green",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.green.medium"
+    },
+    {
+      "id": "c_yellow_s",
+      "color": "yellow",
+      "size": "small",
+      "capacity": 4,
+      "assetKey": "vehicle.yellow.small"
+    },
+    {
+      "id": "c_yellow_m",
+      "color": "yellow",
+      "size": "medium",
+      "capacity": 8,
+      "assetKey": "vehicle.yellow.medium"
+    },
+    {
+      "id": "c_orange_l",
+      "color": "orange",
+      "size": "large",
+      "capacity": 12,
+      "assetKey": "vehicle.orange.large"
+    },
+    {
+      "id": "c_purple_l",
+      "color": "purple",
+      "size": "large",
+      "capacity": 12,
+      "assetKey": "vehicle.purple.large"
+    }
+  ],
+  "parkingColumns": [
+    [
+      "c_green_s",
+      "c_purple_l"
+    ],
+    [
+      "c_yellow_s",
+      "c_green_m"
+    ],
+    [
+      "c_orange_l",
+      "c_yellow_m"
+    ]
+  ],
+  "expectedTotals": {
+    "initialFruit": 48,
+    "entranceFruit": 0,
+    "totalFruit": 48,
+    "byColor": {
+      "green": 12,
+      "yellow": 12,
+      "orange": 12,
+      "purple": 12
+    }
+  }
+}

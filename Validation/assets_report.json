@@ -1,0 +1,29 @@
+{
+  "status": "passed",
+  "frameCount": 33,
+  "textureSize": [
+    2048,
+    1024
+  ],
+  "checks": [
+    "all source PNGs match atlas pixels exactly",
+    "format-3 plist fields match untrimmed source frames",
+    "frame bounds and extrusion do not overlap",
+    "all level references resolve",
+    "rules version and presentation match",
+    "fruit and parked vehicle bounds stay on screen"
+  ],
+  "levels": [
+    {
+      "id": "circular_01",
+      "resolvedAssetKeys": 12,
+      "status": "passed"
+    },
+    {
+      "id": "rectangular_01",
+      "resolvedAssetKeys": 13,
+      "status": "passed"
+    }
+  ],
+  "runtimeAtlasLoad": "separate check: see Validation/latest-verification.json"
+}

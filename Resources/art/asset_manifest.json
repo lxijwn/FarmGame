@@ -1,0 +1,794 @@
+{
+  "schemaVersion": 1,
+  "style": "original_procedural_placeholder",
+  "atlas": "art/farm_atlas.plist",
+  "texture": "art/farm_atlas.png",
+  "textureSize": [
+    2048,
+    1024
+  ],
+  "frameCoordinates": "top_left_pixels",
+  "worldCoordinates": "bottom_left_design_units",
+  "defaultSampling": "linear",
+  "extrusionPixels": 2,
+  "allocationPaddingPixels": 4,
+  "fontPolicy": "Use system font at runtime; no font file is distributed.",
+  "vehicleNumber": "capacity-loaded-reserved (runtime text)",
+  "assets": {
+    "background.farm": {
+      "frame": "background_farm.png",
+      "file": "art/source/background_farm.png",
+      "size": [
+        600,
+        900
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        4,
+        4,
+        600,
+        900
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "board.circular": {
+      "frame": "board_circular.png",
+      "file": "art/source/board_circular.png",
+      "size": [
+        260,
+        260
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "worldCenter": [
+        300,
+        585
+      ],
+      "roadOnly": true,
+      "textureRect": [
+        1608,
+        4,
+        260,
+        260
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "board.rectangular": {
+      "frame": "board_rectangular.png",
+      "file": "art/source/board_rectangular.png",
+      "size": [
+        500,
+        460
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "worldCenter": [
+        300,
+        585
+      ],
+      "roadOnly": true,
+      "textureRect": [
+        612,
+        4,
+        500,
+        460
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fruit.green": {
+      "frame": "fruit_green.png",
+      "file": "art/source/fruit_green.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "semantic": "cabbage",
+      "textureRect": [
+        688,
+        912,
+        64,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.green.small": {
+      "frame": "vehicle_green_small.png",
+      "file": "art/source/vehicle_green_small.png",
+      "size": [
+        54,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        27.0,
+        26.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        38,
+        52
+      ],
+      "textureRect": [
+        976,
+        912,
+        54,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.green.medium": {
+      "frame": "vehicle_green_medium.png",
+      "file": "art/source/vehicle_green_medium.png",
+      "size": [
+        60,
+        72
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        30.0,
+        30.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        44,
+        60
+      ],
+      "textureRect": [
+        416,
+        912,
+        60,
+        72
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.green.large": {
+      "frame": "vehicle_green_large.png",
+      "file": "art/source/vehicle_green_large.png",
+      "size": [
+        66,
+        80
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        33.0,
+        34.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        50,
+        68
+      ],
+      "textureRect": [
+        1876,
+        4,
+        66,
+        80
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fruit.yellow": {
+      "frame": "fruit_yellow.png",
+      "file": "art/source/fruit_yellow.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "semantic": "corn",
+      "textureRect": [
+        904,
+        912,
+        64,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.yellow.small": {
+      "frame": "vehicle_yellow_small.png",
+      "file": "art/source/vehicle_yellow_small.png",
+      "size": [
+        54,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        27.0,
+        26.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        38,
+        52
+      ],
+      "textureRect": [
+        1162,
+        912,
+        54,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.yellow.medium": {
+      "frame": "vehicle_yellow_medium.png",
+      "file": "art/source/vehicle_yellow_medium.png",
+      "size": [
+        60,
+        72
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        30.0,
+        30.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        44,
+        60
+      ],
+      "textureRect": [
+        620,
+        912,
+        60,
+        72
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.yellow.large": {
+      "frame": "vehicle_yellow_large.png",
+      "file": "art/source/vehicle_yellow_large.png",
+      "size": [
+        66,
+        80
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        33.0,
+        34.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        50,
+        68
+      ],
+      "textureRect": [
+        78,
+        912,
+        66,
+        80
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fruit.orange": {
+      "frame": "fruit_orange.png",
+      "file": "art/source/fruit_orange.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "semantic": "carrot",
+      "textureRect": [
+        760,
+        912,
+        64,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.orange.small": {
+      "frame": "vehicle_orange_small.png",
+      "file": "art/source/vehicle_orange_small.png",
+      "size": [
+        54,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        27.0,
+        26.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        38,
+        52
+      ],
+      "textureRect": [
+        1038,
+        912,
+        54,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.orange.medium": {
+      "frame": "vehicle_orange_medium.png",
+      "file": "art/source/vehicle_orange_medium.png",
+      "size": [
+        60,
+        72
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        30.0,
+        30.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        44,
+        60
+      ],
+      "textureRect": [
+        484,
+        912,
+        60,
+        72
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.orange.large": {
+      "frame": "vehicle_orange_large.png",
+      "file": "art/source/vehicle_orange_large.png",
+      "size": [
+        66,
+        80
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        33.0,
+        34.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        50,
+        68
+      ],
+      "textureRect": [
+        1950,
+        4,
+        66,
+        80
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fruit.purple": {
+      "frame": "fruit_purple.png",
+      "file": "art/source/fruit_purple.png",
+      "size": [
+        64,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "semantic": "grapes",
+      "textureRect": [
+        832,
+        912,
+        64,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.purple.small": {
+      "frame": "vehicle_purple_small.png",
+      "file": "art/source/vehicle_purple_small.png",
+      "size": [
+        54,
+        64
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        27.0,
+        26.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        38,
+        52
+      ],
+      "textureRect": [
+        1100,
+        912,
+        54,
+        64
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.purple.medium": {
+      "frame": "vehicle_purple_medium.png",
+      "file": "art/source/vehicle_purple_medium.png",
+      "size": [
+        60,
+        72
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        30.0,
+        30.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        44,
+        60
+      ],
+      "textureRect": [
+        552,
+        912,
+        60,
+        72
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "vehicle.purple.large": {
+      "frame": "vehicle_purple_large.png",
+      "file": "art/source/vehicle_purple_large.png",
+      "size": [
+        66,
+        80
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "capacityTextPosition": [
+        33.0,
+        34.0
+      ],
+      "capacityTextOrigin": "bottom_left",
+      "capacityTextFontSize": 16,
+      "collisionSize": [
+        50,
+        68
+      ],
+      "textureRect": [
+        4,
+        912,
+        66,
+        80
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "waiting.free": {
+      "frame": "waiting_free.png",
+      "file": "art/source/waiting_free.png",
+      "size": [
+        80,
+        76
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        240,
+        912,
+        80,
+        76
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "waiting.reserved": {
+      "frame": "waiting_reserved.png",
+      "file": "art/source/waiting_reserved.png",
+      "size": [
+        80,
+        76
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        328,
+        912,
+        80,
+        76
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "waiting.docked": {
+      "frame": "waiting_docked.png",
+      "file": "art/source/waiting_docked.png",
+      "size": [
+        80,
+        76
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        152,
+        912,
+        80,
+        76
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.entrance": {
+      "frame": "icon_entrance.png",
+      "file": "art/source/icon_entrance.png",
+      "size": [
+        30,
+        30
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "facing": "up",
+      "textureRect": [
+        1912,
+        912,
+        30,
+        30
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.pause": {
+      "frame": "icon_pause.png",
+      "file": "art/source/icon_pause.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1704,
+        912,
+        48,
+        48
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.restart": {
+      "frame": "icon_restart.png",
+      "file": "art/source/icon_restart.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1816,
+        912,
+        48,
+        48
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.back": {
+      "frame": "icon_back.png",
+      "file": "art/source/icon_back.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1648,
+        912,
+        48,
+        48
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.play": {
+      "frame": "icon_play.png",
+      "file": "art/source/icon_play.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1760,
+        912,
+        48,
+        48
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "button.primary": {
+      "frame": "button_primary.png",
+      "file": "art/source/button_primary.png",
+      "size": [
+        240,
+        56
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "labelBaked": false,
+      "textureRect": [
+        1224,
+        912,
+        240,
+        56
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "panel.dialog": {
+      "frame": "panel_dialog.png",
+      "file": "art/source/panel_dialog.png",
+      "size": [
+        480,
+        300
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1120,
+        4,
+        480,
+        300
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fx.sparkle": {
+      "frame": "fx_sparkle.png",
+      "file": "art/source/fx_sparkle.png",
+      "size": [
+        32,
+        32
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1872,
+        912,
+        32,
+        32
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "fx.collect_ring": {
+      "frame": "fx_collect_ring.png",
+      "file": "art/source/fx_collect_ring.png",
+      "size": [
+        48,
+        48
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1592,
+        912,
+        48,
+        48
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.success": {
+      "frame": "icon_success.png",
+      "file": "art/source/icon_success.png",
+      "size": [
+        52,
+        52
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1532,
+        912,
+        52,
+        52
+      ],
+      "atlas": "art/farm_atlas.plist"
+    },
+    "icon.blocked": {
+      "frame": "icon_blocked.png",
+      "file": "art/source/icon_blocked.png",
+      "size": [
+        52,
+        52
+      ],
+      "anchor": [
+        0.5,
+        0.5
+      ],
+      "textureRect": [
+        1472,
+        912,
+        52,
+        52
+      ],
+      "atlas": "art/farm_atlas.plist"
+    }
+  }
+}

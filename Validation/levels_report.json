@@ -1,0 +1,29 @@
+{
+  "scope": "serial data witness; independent C++ scene validation is recorded in latest-verification.json",
+  "levels": [
+    {
+      "id": "circular_01",
+      "searchedStates": 10,
+      "status": "passed",
+      "collected": 48,
+      "launchCount": 10,
+      "relaunchCount": 4,
+      "peakBoundWaitingSlots": 4,
+      "minContactGapSeconds": 0.625,
+      "collectPlusRefillSeconds": 0.42,
+      "estimatedSeconds": 86.58
+    },
+    {
+      "id": "rectangular_01",
+      "searchedStates": 11,
+      "status": "passed",
+      "collected": 64,
+      "launchCount": 11,
+      "relaunchCount": 3,
+      "peakBoundWaitingSlots": 3,
+      "minContactGapSeconds": 1.25,
+      "collectPlusRefillSeconds": 0.42,
+      "estimatedSeconds": 96.24
+    }
+  ]
+}

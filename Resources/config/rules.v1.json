@@ -1,0 +1,132 @@
+{
+  "rulesVersion": "1.2.0",
+  "purpose": "First playable Farm demo development baseline",
+  "platform": "windows",
+  "engineVersion": "cocos2d-x-3.17.2",
+  "presentation": {
+    "designWidth": 600,
+    "designHeight": 900,
+    "windowWidth": 480,
+    "windowHeight": 720
+  },
+  "colors": [
+    "green",
+    "yellow",
+    "orange",
+    "purple"
+  ],
+  "fruitUnitsPerBlock": 1,
+  "vehicleCapacities": {
+    "small": 4,
+    "medium": 8,
+    "large": 12
+  },
+  "vehicleNumberDisplay": "capacity_minus_loaded_minus_reserved",
+  "parking": {
+    "queueColumns": 3,
+    "selectableVehicles": "settled_front_vehicle_per_column",
+    "directionalBlockingPuzzleEnabled": false
+  },
+  "admission": {
+    "roadCapacity": 5,
+    "waitingCapacity": 5,
+    "waitingReservation": "bind_from_first_launch_until_completed_exit",
+    "newVehicleRequiresFreeRoadSlot": true,
+    "newVehicleRequiresFreeWaitingSlot": true,
+    "relaunchKeepsWaitingReservation": true,
+    "releaseRoadSlot": "after_return_or_completed_exit_animation",
+    "releaseWaitingSlot": "after_completed_exit_animation",
+    "minimumLaunchIntervalSeconds": 0.8
+  },
+  "vehicleTrip": {
+    "lapsPerLaunch": 1,
+    "lapDurationSeconds": 10.0,
+    "direction": "clockwise_for_circle_forward_for_open_rectangular",
+    "unfilledVehiclePolicy": "return_to_bound_waiting_slot",
+    "relaunchPolicy": "player_click",
+    "preserveLoadAcrossTrips": true,
+    "fullVehiclePolicy": "exit_after_pending_collections_complete",
+    "overtakingEnabled": false
+  },
+  "collection": {
+    "requiresMatchingColor": true,
+    "requiresSettledFruit": true,
+    "requiresGeometricEligibility": true,
+    "trigger": "swept_road_contact_event",
+    "batchBoundary": "one_contact_event",
+    "arbitrationOrder": [
+      "contact_time",
+      "vehicle_id",
+      "slot_id"
+    ],
+    "reserveFruitAndCapacityTogether": true,
+    "remoteCollectionAfterPassingEnabled": false
+  },
+  "animations": {
+    "enterSeconds": 0.25,
+    "collectSeconds": 0.18,
+    "refillSeconds": 0.24,
+    "returnSeconds": 0.3,
+    "completedExitSeconds": 0.3,
+    "unlockNewFrontAfterRefillCompleted": true,
+    "pauseLogicAndAnimationsTogether": true
+  },
+  "circular": {
+    "defaultRingCount": 3,
+    "defaultSlotsPerRing": 16,
+    "collectibleRing": "innermost_collection_ring",
+    "destinationOrder": "inner_to_outer_within_collected_column",
+    "sourceOrder": [
+      "same_angular_column",
+      "nearest_outer_ring"
+    ],
+    "fillUntil": "collected_radial_column_compacted",
+    "compactRemainingOuterRingAlongArc": false,
+    "generateNewFruit": false,
+    "refillPolicy": "stable_radial_columns",
+    "crossRadialColumnMovementEnabled": false
+  },
+  "rectangular": {
+    "contactRule": "horizontal_exposed_same_color_prefix_until_different_color",
+    "contactToleranceGridUnits": 0.0001,
+    "cornerOnlyContactAllowed": false,
+    "collectAcrossGapAllowed": false,
+    "refillOrder": "stable_horizontal_order_toward_channel_within_same_row_side",
+    "crossChainMovementEnabled": false,
+    "entranceGeneration": "finite_explicit_sequence_validated_against_candidate_pool",
+    "refillTriggers": [
+      "initialization",
+      "completed_collection_in_chain"
+    ],
+    "existingFruitMovesBeforeGeneration": true,
+    "consumeSequenceWithoutSpace": false,
+    "changeExistingFruitColor": false,
+    "roadTopology": "open_folded_entrance_to_endpoint",
+    "unfilledAtEndpoint": "return_to_bound_waiting_slot_preserving_load"
+  },
+  "outcome": {
+    "victoryRequiresEmptyBoard": true,
+    "victoryIncludesPendingEntranceFruit": true,
+    "victoryWaitsForPendingTransactions": true,
+    "victoryWaitsForCompletedVehicleExits": true,
+    "capacityFullMeansImmediateFailure": false,
+    "failurePolicy": "proven_no_progress_with_road_idle_and_no_new_vehicle_admission",
+    "timeLimitSeconds": null,
+    "stepLimit": null
+  },
+  "features": {
+    "sameColorMergeEnabled": false,
+    "slotExpansionEnabled": false,
+    "powerupsEnabled": false,
+    "reviveEnabled": false,
+    "pauseEnabled": true,
+    "restartEnabled": true,
+    "modeSelectionEnabled": true
+  },
+  "levelValidation": {
+    "totalVehicleCapacityEqualsTotalFruitPerColor": true,
+    "countEntranceSequencesInTotalFruit": true,
+    "requireUniqueEntityAndSlotIds": true,
+    "requireVerifiedWinningInputSequenceBeforeDelivery": true
+  }
+}

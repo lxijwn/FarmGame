@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "levels": [
+    {
+      "id": "circular_01",
+      "title": "环形农场",
+      "path": "levels/circular_01.json"
+    },
+    {
+      "id": "rectangular_01",
+      "title": "折返农场",
+      "path": "levels/rectangular_01.json"
+    }
+  ]
+}

@@ -1,0 +1,1039 @@
+{
+  "schemaVersion": 1,
+  "levelId": "rectangular_01",
+  "levelSha256": "0e73f053b79fb6b67167ff061880e1145766e7eb3ff5e8eb4a8a839d98bdde1e",
+  "scope": "serial data witness; independent C++ scene validation is recorded in latest-verification.json",
+  "inputPolicy": "one_vehicle_at_a_time_wait_until_all_idle",
+  "validation": {
+    "status": "passed",
+    "collected": 64,
+    "launchCount": 11,
+    "relaunchCount": 3,
+    "peakBoundWaitingSlots": 3,
+    "minContactGapSeconds": 1.25,
+    "collectPlusRefillSeconds": 0.42,
+    "estimatedSeconds": 96.24
+  },
+  "steps": [
+    {
+      "step": 1,
+      "vehicleId": "r_green_s",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 4,
+      "loadedAfter": 4,
+      "capacity": 4,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 6.355,
+      "remainingTargets": 60,
+      "events": [
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_0",
+          "slotIndex": 0,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_1",
+          "slotIndex": 1,
+          "moved": [
+            {
+              "id": "r_row0_left_fruit_2",
+              "from": 2,
+              "to": 0
+            },
+            {
+              "id": "r_row0_left_fruit_3",
+              "from": 3,
+              "to": 1
+            },
+            {
+              "id": "r_row0_left_fruit_4",
+              "from": 4,
+              "to": 2
+            },
+            {
+              "id": "r_row0_left_fruit_5",
+              "from": 5,
+              "to": 3
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_left_fruit_0",
+          "slotIndex": 24,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_right_fruit_0",
+          "slotIndex": 25,
+          "moved": [
+            {
+              "id": "r_row4_right_fruit_1",
+              "from": 26,
+              "to": 25
+            },
+            {
+              "id": "r_row4_right_fruit_2",
+              "from": 27,
+              "to": 26
+            },
+            {
+              "id": "r_row4_right_fruit_3",
+              "from": 28,
+              "to": 27
+            },
+            {
+              "id": "r_row4_right_fruit_4",
+              "from": 29,
+              "to": 28
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "vehicleId": "r_yellow_s",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 4,
+      "loadedAfter": 4,
+      "capacity": 4,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 8.96,
+      "remainingTargets": 56,
+      "events": [
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_2",
+          "slotIndex": 0,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_3",
+          "slotIndex": 1,
+          "moved": [
+            {
+              "id": "r_row0_left_fruit_4",
+              "from": 2,
+              "to": 0
+            },
+            {
+              "id": "r_row0_left_fruit_5",
+              "from": 3,
+              "to": 1
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_right_fruit_0",
+          "slotIndex": 10,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_right_fruit_1",
+          "slotIndex": 11,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "vehicleId": "r_orange_a",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 6,
+      "loadedAfter": 6,
+      "capacity": 8,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 19.51,
+      "remainingTargets": 50,
+      "events": [
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_4",
+          "slotIndex": 0,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.0625,
+          "fruit": "r_row0_left_fruit_5",
+          "slotIndex": 1,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_left_fruit_0",
+          "slotIndex": 12,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_left_fruit_1",
+          "slotIndex": 13,
+          "moved": [
+            {
+              "id": "r_row2_left_fruit_2",
+              "from": 14,
+              "to": 12
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_fruit_0",
+          "slotIndex": 36,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_fruit_1",
+          "slotIndex": 37,
+          "moved": [
+            {
+              "id": "r_row6_left_fruit_2",
+              "from": 38,
+              "to": 36
+            },
+            {
+              "id": "r_row6_left_fruit_3",
+              "from": 39,
+              "to": 37
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row6_left_spawn_0",
+              "to": 38
+            },
+            {
+              "id": "r_row6_left_spawn_1",
+              "to": 39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "vehicleId": "r_purple_a",
+      "action": "launch_from_parking",
+      "waitingSlot": 2,
+      "loadedBefore": 0,
+      "collectedThisTrip": 8,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 28.365,
+      "remainingTargets": 42,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_fruit_0",
+          "slotIndex": 6,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_fruit_1",
+          "slotIndex": 7,
+          "moved": [
+            {
+              "id": "r_row1_left_fruit_2",
+              "from": 8,
+              "to": 6
+            },
+            {
+              "id": "r_row1_left_fruit_3",
+              "from": 9,
+              "to": 7
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row1_left_spawn_0",
+              "to": 8
+            },
+            {
+              "id": "r_row1_left_spawn_1",
+              "to": 9
+            }
+          ]
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_left_fruit_2",
+          "slotIndex": 12,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_fruit_0",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "r_row2_right_fruit_1",
+              "from": 16,
+              "to": 15
+            },
+            {
+              "id": "r_row2_right_fruit_2",
+              "from": 17,
+              "to": 16
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row2_right_spawn_0",
+              "to": 17
+            }
+          ]
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_left_fruit_0",
+          "slotIndex": 30,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_left_fruit_1",
+          "slotIndex": 31,
+          "moved": [
+            {
+              "id": "r_row5_left_fruit_2",
+              "from": 32,
+              "to": 30
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_fruit_2",
+          "slotIndex": 36,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_fruit_3",
+          "slotIndex": 37,
+          "moved": [
+            {
+              "id": "r_row6_left_spawn_0",
+              "from": 38,
+              "to": 36
+            },
+            {
+              "id": "r_row6_left_spawn_1",
+              "from": 39,
+              "to": 37
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row6_left_spawn_2",
+              "to": 38
+            },
+            {
+              "id": "r_row6_left_spawn_3",
+              "to": 39
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "vehicleId": "r_green_l",
+      "action": "launch_from_parking",
+      "waitingSlot": 2,
+      "loadedBefore": 0,
+      "collectedThisTrip": 8,
+      "loadedAfter": 8,
+      "capacity": 12,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 38.915,
+      "remainingTargets": 34,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_fruit_2",
+          "slotIndex": 6,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_fruit_3",
+          "slotIndex": 7,
+          "moved": [
+            {
+              "id": "r_row1_left_spawn_0",
+              "from": 8,
+              "to": 6
+            },
+            {
+              "id": "r_row1_left_spawn_1",
+              "from": 9,
+              "to": 7
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row1_left_spawn_2",
+              "to": 8
+            },
+            {
+              "id": "r_row1_left_spawn_3",
+              "to": 9
+            }
+          ]
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_fruit_1",
+          "slotIndex": 15,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_fruit_2",
+          "slotIndex": 16,
+          "moved": [
+            {
+              "id": "r_row2_right_spawn_0",
+              "from": 17,
+              "to": 15
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row2_right_spawn_1",
+              "to": 16
+            },
+            {
+              "id": "r_row2_right_spawn_2",
+              "to": 17
+            }
+          ]
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_left_fruit_2",
+          "slotIndex": 30,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_fruit_0",
+          "slotIndex": 33,
+          "moved": [
+            {
+              "id": "r_row5_right_fruit_1",
+              "from": 34,
+              "to": 33
+            },
+            {
+              "id": "r_row5_right_fruit_2",
+              "from": 35,
+              "to": 34
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row5_right_spawn_0",
+              "to": 35
+            }
+          ]
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_right_fruit_0",
+          "slotIndex": 40,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_right_fruit_1",
+          "slotIndex": 41,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "vehicleId": "r_orange_a",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 1,
+      "loadedBefore": 6,
+      "collectedThisTrip": 2,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 47.77,
+      "remainingTargets": 32,
+      "events": [
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_spawn_0",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "r_row2_right_spawn_1",
+              "from": 16,
+              "to": 15
+            },
+            {
+              "id": "r_row2_right_spawn_2",
+              "from": 17,
+              "to": 16
+            }
+          ],
+          "generated": [
+            {
+              "id": "r_row2_right_spawn_3",
+              "to": 17
+            }
+          ]
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_spawn_0",
+          "slotIndex": 36,
+          "moved": [
+            {
+              "id": "r_row6_left_spawn_1",
+              "from": 37,
+              "to": 36
+            },
+            {
+              "id": "r_row6_left_spawn_2",
+              "from": 38,
+              "to": 37
+            },
+            {
+              "id": "r_row6_left_spawn_3",
+              "from": 39,
+              "to": 38
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "vehicleId": "r_yellow_l",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 10,
+      "loadedAfter": 10,
+      "capacity": 12,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 58.32,
+      "remainingTargets": 22,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_spawn_0",
+          "slotIndex": 6,
+          "moved": [
+            {
+              "id": "r_row1_left_spawn_1",
+              "from": 7,
+              "to": 6
+            },
+            {
+              "id": "r_row1_left_spawn_2",
+              "from": 8,
+              "to": 7
+            },
+            {
+              "id": "r_row1_left_spawn_3",
+              "from": 9,
+              "to": 8
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_left_fruit_0",
+          "slotIndex": 18,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_right_fruit_0",
+          "slotIndex": 19,
+          "moved": [
+            {
+              "id": "r_row3_right_fruit_1",
+              "from": 20,
+              "to": 19
+            },
+            {
+              "id": "r_row3_right_fruit_2",
+              "from": 21,
+              "to": 20
+            },
+            {
+              "id": "r_row3_right_fruit_3",
+              "from": 22,
+              "to": 21
+            },
+            {
+              "id": "r_row3_right_fruit_4",
+              "from": 23,
+              "to": 22
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_right_fruit_1",
+          "slotIndex": 25,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_right_fruit_2",
+          "slotIndex": 26,
+          "moved": [
+            {
+              "id": "r_row4_right_fruit_3",
+              "from": 27,
+              "to": 25
+            },
+            {
+              "id": "r_row4_right_fruit_4",
+              "from": 28,
+              "to": 26
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_fruit_1",
+          "slotIndex": 33,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_fruit_2",
+          "slotIndex": 34,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_spawn_0",
+          "slotIndex": 35,
+          "moved": [],
+          "generated": [
+            {
+              "id": "r_row5_right_spawn_1",
+              "to": 33
+            },
+            {
+              "id": "r_row5_right_spawn_2",
+              "to": 34
+            },
+            {
+              "id": "r_row5_right_spawn_3",
+              "to": 35
+            }
+          ]
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_0",
+          "slotIndex": 42,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_1",
+          "slotIndex": 43,
+          "moved": [
+            {
+              "id": "r_row7_left_fruit_2",
+              "from": 44,
+              "to": 42
+            },
+            {
+              "id": "r_row7_left_fruit_3",
+              "from": 45,
+              "to": 43
+            },
+            {
+              "id": "r_row7_left_fruit_4",
+              "from": 46,
+              "to": 44
+            },
+            {
+              "id": "r_row7_left_fruit_5",
+              "from": 47,
+              "to": 45
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "vehicleId": "r_orange_b",
+      "action": "launch_from_parking",
+      "waitingSlot": 3,
+      "loadedBefore": 0,
+      "collectedThisTrip": 8,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 68.425,
+      "remainingTargets": 14,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_spawn_1",
+          "slotIndex": 6,
+          "moved": [
+            {
+              "id": "r_row1_left_spawn_2",
+              "from": 7,
+              "to": 6
+            },
+            {
+              "id": "r_row1_left_spawn_3",
+              "from": 8,
+              "to": 7
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_right_fruit_1",
+          "slotIndex": 19,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_right_fruit_2",
+          "slotIndex": 20,
+          "moved": [
+            {
+              "id": "r_row3_right_fruit_3",
+              "from": 21,
+              "to": 19
+            },
+            {
+              "id": "r_row3_right_fruit_4",
+              "from": 22,
+              "to": 20
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_right_fruit_3",
+          "slotIndex": 25,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.5625,
+          "fruit": "r_row4_right_fruit_4",
+          "slotIndex": 26,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_spawn_1",
+          "slotIndex": 33,
+          "moved": [
+            {
+              "id": "r_row5_right_spawn_2",
+              "from": 34,
+              "to": 33
+            },
+            {
+              "id": "r_row5_right_spawn_3",
+              "from": 35,
+              "to": 34
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_2",
+          "slotIndex": 42,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_3",
+          "slotIndex": 43,
+          "moved": [
+            {
+              "id": "r_row7_left_fruit_4",
+              "from": 44,
+              "to": 42
+            },
+            {
+              "id": "r_row7_left_fruit_5",
+              "from": 45,
+              "to": 43
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "vehicleId": "r_purple_b",
+      "action": "launch_from_parking",
+      "waitingSlot": 3,
+      "loadedBefore": 0,
+      "collectedThisTrip": 8,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 78.53,
+      "remainingTargets": 6,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_spawn_2",
+          "slotIndex": 6,
+          "moved": [
+            {
+              "id": "r_row1_left_spawn_3",
+              "from": 7,
+              "to": 6
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_spawn_1",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "r_row2_right_spawn_2",
+              "from": 16,
+              "to": 15
+            },
+            {
+              "id": "r_row2_right_spawn_3",
+              "from": 17,
+              "to": 16
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_right_fruit_3",
+          "slotIndex": 19,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.4375,
+          "fruit": "r_row3_right_fruit_4",
+          "slotIndex": 20,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_spawn_2",
+          "slotIndex": 33,
+          "moved": [
+            {
+              "id": "r_row5_right_spawn_3",
+              "from": 34,
+              "to": 33
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_spawn_1",
+          "slotIndex": 36,
+          "moved": [
+            {
+              "id": "r_row6_left_spawn_2",
+              "from": 37,
+              "to": 36
+            },
+            {
+              "id": "r_row6_left_spawn_3",
+              "from": 38,
+              "to": 37
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_4",
+          "slotIndex": 42,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.9375,
+          "fruit": "r_row7_left_fruit_5",
+          "slotIndex": 43,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "vehicleId": "r_green_l",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 2,
+      "loadedBefore": 8,
+      "collectedThisTrip": 4,
+      "loadedAfter": 12,
+      "capacity": 12,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 87.385,
+      "remainingTargets": 2,
+      "events": [
+        {
+          "progress": 0.1875,
+          "fruit": "r_row1_left_spawn_3",
+          "slotIndex": 6,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_spawn_2",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "r_row2_right_spawn_3",
+              "from": 16,
+              "to": 15
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.6875,
+          "fruit": "r_row5_right_spawn_3",
+          "slotIndex": 33,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_spawn_2",
+          "slotIndex": 36,
+          "moved": [
+            {
+              "id": "r_row6_left_spawn_3",
+              "from": 37,
+              "to": 36
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 11,
+      "vehicleId": "r_yellow_l",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 1,
+      "loadedBefore": 10,
+      "collectedThisTrip": 2,
+      "loadedAfter": 12,
+      "capacity": 12,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 96.24,
+      "remainingTargets": 0,
+      "events": [
+        {
+          "progress": 0.3125,
+          "fruit": "r_row2_right_spawn_3",
+          "slotIndex": 15,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.8125,
+          "fruit": "r_row6_left_spawn_3",
+          "slotIndex": 36,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    }
+  ]
+}

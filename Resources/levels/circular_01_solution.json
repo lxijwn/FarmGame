@@ -1,0 +1,787 @@
+{
+  "schemaVersion": 1,
+  "levelId": "circular_01",
+  "levelSha256": "e8faccb0b65cca9665f9d597a0d4a99a38b05a085fe03704b05ca3a97b5070b0",
+  "scope": "serial data witness; independent C++ scene validation is recorded in latest-verification.json",
+  "inputPolicy": "one_vehicle_at_a_time_wait_until_all_idle",
+  "validation": {
+    "status": "passed",
+    "collected": 48,
+    "launchCount": 10,
+    "relaunchCount": 4,
+    "peakBoundWaitingSlots": 4,
+    "minContactGapSeconds": 0.625,
+    "collectPlusRefillSeconds": 0.42,
+    "estimatedSeconds": 86.58
+  },
+  "steps": [
+    {
+      "step": 1,
+      "vehicleId": "c_green_s",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 4,
+      "loadedAfter": 4,
+      "capacity": 4,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 2.917,
+      "remainingTargets": 44,
+      "events": [
+        {
+          "progress": 0.03125,
+          "fruit": "c_fruit_0_00",
+          "slotIndex": 0,
+          "moved": [
+            {
+              "id": "c_fruit_1_00",
+              "from": 16,
+              "to": 0
+            },
+            {
+              "id": "c_fruit_2_00",
+              "from": 32,
+              "to": 16
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.09375,
+          "fruit": "c_fruit_0_01",
+          "slotIndex": 1,
+          "moved": [
+            {
+              "id": "c_fruit_1_01",
+              "from": 17,
+              "to": 1
+            },
+            {
+              "id": "c_fruit_2_01",
+              "from": 33,
+              "to": 17
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.15625,
+          "fruit": "c_fruit_0_02",
+          "slotIndex": 2,
+          "moved": [
+            {
+              "id": "c_fruit_1_02",
+              "from": 18,
+              "to": 2
+            },
+            {
+              "id": "c_fruit_2_02",
+              "from": 34,
+              "to": 18
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.21875,
+          "fruit": "c_fruit_0_03",
+          "slotIndex": 3,
+          "moved": [
+            {
+              "id": "c_fruit_1_03",
+              "from": 19,
+              "to": 3
+            },
+            {
+              "id": "c_fruit_2_03",
+              "from": 35,
+              "to": 19
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 2,
+      "vehicleId": "c_yellow_s",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 4,
+      "loadedAfter": 4,
+      "capacity": 4,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 7.71,
+      "remainingTargets": 40,
+      "events": [
+        {
+          "progress": 0.03125,
+          "fruit": "c_fruit_1_00",
+          "slotIndex": 0,
+          "moved": [
+            {
+              "id": "c_fruit_2_00",
+              "from": 16,
+              "to": 0
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.28125,
+          "fruit": "c_fruit_0_04",
+          "slotIndex": 4,
+          "moved": [
+            {
+              "id": "c_fruit_1_04",
+              "from": 20,
+              "to": 4
+            },
+            {
+              "id": "c_fruit_2_04",
+              "from": 36,
+              "to": 20
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.34375,
+          "fruit": "c_fruit_0_05",
+          "slotIndex": 5,
+          "moved": [
+            {
+              "id": "c_fruit_1_05",
+              "from": 21,
+              "to": 5
+            },
+            {
+              "id": "c_fruit_2_05",
+              "from": 37,
+              "to": 21
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.40625,
+          "fruit": "c_fruit_0_06",
+          "slotIndex": 6,
+          "moved": [
+            {
+              "id": "c_fruit_1_06",
+              "from": 22,
+              "to": 6
+            },
+            {
+              "id": "c_fruit_2_06",
+              "from": 38,
+              "to": 22
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 3,
+      "vehicleId": "c_purple_l",
+      "action": "launch_from_parking",
+      "waitingSlot": 1,
+      "loadedBefore": 0,
+      "collectedThisTrip": 7,
+      "loadedAfter": 7,
+      "capacity": 12,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 18.26,
+      "remainingTargets": 33,
+      "events": [
+        {
+          "progress": 0.03125,
+          "fruit": "c_fruit_2_00",
+          "slotIndex": 0,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.15625,
+          "fruit": "c_fruit_1_02",
+          "slotIndex": 2,
+          "moved": [
+            {
+              "id": "c_fruit_2_02",
+              "from": 18,
+              "to": 2
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.40625,
+          "fruit": "c_fruit_1_06",
+          "slotIndex": 6,
+          "moved": [
+            {
+              "id": "c_fruit_2_06",
+              "from": 22,
+              "to": 6
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.78125,
+          "fruit": "c_fruit_0_12",
+          "slotIndex": 12,
+          "moved": [
+            {
+              "id": "c_fruit_1_12",
+              "from": 28,
+              "to": 12
+            },
+            {
+              "id": "c_fruit_2_12",
+              "from": 44,
+              "to": 28
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.84375,
+          "fruit": "c_fruit_0_13",
+          "slotIndex": 13,
+          "moved": [
+            {
+              "id": "c_fruit_1_13",
+              "from": 29,
+              "to": 13
+            },
+            {
+              "id": "c_fruit_2_13",
+              "from": 45,
+              "to": 29
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.90625,
+          "fruit": "c_fruit_0_14",
+          "slotIndex": 14,
+          "moved": [
+            {
+              "id": "c_fruit_1_14",
+              "from": 30,
+              "to": 14
+            },
+            {
+              "id": "c_fruit_2_14",
+              "from": 46,
+              "to": 30
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.96875,
+          "fruit": "c_fruit_0_15",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "c_fruit_1_15",
+              "from": 31,
+              "to": 15
+            },
+            {
+              "id": "c_fruit_2_15",
+              "from": 47,
+              "to": 31
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 4,
+      "vehicleId": "c_orange_l",
+      "action": "launch_from_parking",
+      "waitingSlot": 2,
+      "loadedBefore": 0,
+      "collectedThisTrip": 6,
+      "loadedAfter": 6,
+      "capacity": 12,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 28.81,
+      "remainingTargets": 27,
+      "events": [
+        {
+          "progress": 0.21875,
+          "fruit": "c_fruit_1_03",
+          "slotIndex": 3,
+          "moved": [
+            {
+              "id": "c_fruit_2_03",
+              "from": 19,
+              "to": 3
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.53125,
+          "fruit": "c_fruit_0_08",
+          "slotIndex": 8,
+          "moved": [
+            {
+              "id": "c_fruit_1_08",
+              "from": 24,
+              "to": 8
+            },
+            {
+              "id": "c_fruit_2_08",
+              "from": 40,
+              "to": 24
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.59375,
+          "fruit": "c_fruit_0_09",
+          "slotIndex": 9,
+          "moved": [
+            {
+              "id": "c_fruit_1_09",
+              "from": 25,
+              "to": 9
+            },
+            {
+              "id": "c_fruit_2_09",
+              "from": 41,
+              "to": 25
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.65625,
+          "fruit": "c_fruit_0_10",
+          "slotIndex": 10,
+          "moved": [
+            {
+              "id": "c_fruit_1_10",
+              "from": 26,
+              "to": 10
+            },
+            {
+              "id": "c_fruit_2_10",
+              "from": 42,
+              "to": 26
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.71875,
+          "fruit": "c_fruit_0_11",
+          "slotIndex": 11,
+          "moved": [
+            {
+              "id": "c_fruit_1_11",
+              "from": 27,
+              "to": 11
+            },
+            {
+              "id": "c_fruit_2_11",
+              "from": 43,
+              "to": 27
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.96875,
+          "fruit": "c_fruit_1_15",
+          "slotIndex": 15,
+          "moved": [
+            {
+              "id": "c_fruit_2_15",
+              "from": 31,
+              "to": 15
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 5,
+      "vehicleId": "c_green_m",
+      "action": "launch_from_parking",
+      "waitingSlot": 3,
+      "loadedBefore": 0,
+      "collectedThisTrip": 6,
+      "loadedAfter": 6,
+      "capacity": 8,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 39.36,
+      "remainingTargets": 21,
+      "events": [
+        {
+          "progress": 0.09375,
+          "fruit": "c_fruit_1_01",
+          "slotIndex": 1,
+          "moved": [
+            {
+              "id": "c_fruit_2_01",
+              "from": 17,
+              "to": 1
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.15625,
+          "fruit": "c_fruit_2_02",
+          "slotIndex": 2,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.34375,
+          "fruit": "c_fruit_1_05",
+          "slotIndex": 5,
+          "moved": [
+            {
+              "id": "c_fruit_2_05",
+              "from": 21,
+              "to": 5
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.40625,
+          "fruit": "c_fruit_2_06",
+          "slotIndex": 6,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.59375,
+          "fruit": "c_fruit_1_09",
+          "slotIndex": 9,
+          "moved": [
+            {
+              "id": "c_fruit_2_09",
+              "from": 25,
+              "to": 9
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.84375,
+          "fruit": "c_fruit_1_13",
+          "slotIndex": 13,
+          "moved": [
+            {
+              "id": "c_fruit_2_13",
+              "from": 29,
+              "to": 13
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 6,
+      "vehicleId": "c_yellow_m",
+      "action": "launch_from_parking",
+      "waitingSlot": 4,
+      "loadedBefore": 0,
+      "collectedThisTrip": 6,
+      "loadedAfter": 6,
+      "capacity": 8,
+      "result": "returned_to_waiting",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 49.91,
+      "remainingTargets": 15,
+      "events": [
+        {
+          "progress": 0.21875,
+          "fruit": "c_fruit_2_03",
+          "slotIndex": 3,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.28125,
+          "fruit": "c_fruit_1_04",
+          "slotIndex": 4,
+          "moved": [
+            {
+              "id": "c_fruit_2_04",
+              "from": 20,
+              "to": 4
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.46875,
+          "fruit": "c_fruit_0_07",
+          "slotIndex": 7,
+          "moved": [
+            {
+              "id": "c_fruit_1_07",
+              "from": 23,
+              "to": 7
+            },
+            {
+              "id": "c_fruit_2_07",
+              "from": 39,
+              "to": 23
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.53125,
+          "fruit": "c_fruit_1_08",
+          "slotIndex": 8,
+          "moved": [
+            {
+              "id": "c_fruit_2_08",
+              "from": 24,
+              "to": 8
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.78125,
+          "fruit": "c_fruit_1_12",
+          "slotIndex": 12,
+          "moved": [
+            {
+              "id": "c_fruit_2_12",
+              "from": 28,
+              "to": 12
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.96875,
+          "fruit": "c_fruit_2_15",
+          "slotIndex": 15,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 7,
+      "vehicleId": "c_orange_l",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 2,
+      "loadedBefore": 6,
+      "collectedThisTrip": 6,
+      "loadedAfter": 12,
+      "capacity": 12,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 59.078,
+      "remainingTargets": 9,
+      "events": [
+        {
+          "progress": 0.09375,
+          "fruit": "c_fruit_2_01",
+          "slotIndex": 1,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.34375,
+          "fruit": "c_fruit_2_05",
+          "slotIndex": 5,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.46875,
+          "fruit": "c_fruit_1_07",
+          "slotIndex": 7,
+          "moved": [
+            {
+              "id": "c_fruit_2_07",
+              "from": 23,
+              "to": 7
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.59375,
+          "fruit": "c_fruit_2_09",
+          "slotIndex": 9,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.71875,
+          "fruit": "c_fruit_1_11",
+          "slotIndex": 11,
+          "moved": [
+            {
+              "id": "c_fruit_2_11",
+              "from": 27,
+              "to": 11
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.84375,
+          "fruit": "c_fruit_2_13",
+          "slotIndex": 13,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 8,
+      "vehicleId": "c_purple_l",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 1,
+      "loadedBefore": 7,
+      "collectedThisTrip": 5,
+      "loadedAfter": 12,
+      "capacity": 12,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 68.87,
+      "remainingTargets": 4,
+      "events": [
+        {
+          "progress": 0.28125,
+          "fruit": "c_fruit_2_04",
+          "slotIndex": 4,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.53125,
+          "fruit": "c_fruit_2_08",
+          "slotIndex": 8,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.65625,
+          "fruit": "c_fruit_1_10",
+          "slotIndex": 10,
+          "moved": [
+            {
+              "id": "c_fruit_2_10",
+              "from": 26,
+              "to": 10
+            }
+          ],
+          "generated": []
+        },
+        {
+          "progress": 0.78125,
+          "fruit": "c_fruit_2_12",
+          "slotIndex": 12,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.90625,
+          "fruit": "c_fruit_1_14",
+          "slotIndex": 14,
+          "moved": [
+            {
+              "id": "c_fruit_2_14",
+              "from": 30,
+              "to": 14
+            }
+          ],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 9,
+      "vehicleId": "c_green_m",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 3,
+      "loadedBefore": 6,
+      "collectedThisTrip": 2,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 78.663,
+      "remainingTargets": 2,
+      "events": [
+        {
+          "progress": 0.65625,
+          "fruit": "c_fruit_2_10",
+          "slotIndex": 10,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.90625,
+          "fruit": "c_fruit_2_14",
+          "slotIndex": 14,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    },
+    {
+      "step": 10,
+      "vehicleId": "c_yellow_m",
+      "action": "relaunch_from_waiting",
+      "waitingSlot": 4,
+      "loadedBefore": 6,
+      "collectedThisTrip": 2,
+      "loadedAfter": 8,
+      "capacity": 8,
+      "result": "completed_exit",
+      "waitFor": "road_board_and_parking_idle",
+      "earliestNextInputSeconds": 86.58,
+      "remainingTargets": 0,
+      "events": [
+        {
+          "progress": 0.46875,
+          "fruit": "c_fruit_2_07",
+          "slotIndex": 7,
+          "moved": [],
+          "generated": []
+        },
+        {
+          "progress": 0.71875,
+          "fruit": "c_fruit_2_11",
+          "slotIndex": 11,
+          "moved": [],
+          "generated": []
+        }
+      ]
+    }
+  ]
+}

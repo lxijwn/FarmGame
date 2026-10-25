@@ -1,0 +1,8 @@
+build-*/
+logs/
+Validation/runs/
+Validation/manual/
+Validation/demo/
+Validation/package/
+Validation/latest-verification.json
+Tools/__pycache__/
