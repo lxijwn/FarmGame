@@ -78,6 +78,8 @@ Runtime::TrafficAudit Runtime::audit(const std::string& capture,const GameModel&
     a.capture=capture;a.levelId=model.levelId();a.time=model.now();a.road=model.roadUsed();a.waiting=model.waitingUsed();a.paused=model.paused();
     a.remaining=game.board().remaining();a.collected=game.board().collected();a.pickups=int(game.pickups().size());a.outcome=outcomeName(game.outcome());
     a.entranceCursors=game.board().entranceCursors();
+    a.spawnSeed=game.board().spawnSeed();
+    for(const auto& f:game.board().fruits()) if(f.second.spawning) ++a.spawning;
     for(const auto& item:model.states()) {
         VehicleAudit v;v.id=item.first;v.phase=phaseName(item.second.phase);
         v.slot=item.second.waitingSlot;v.loaded=item.second.loaded;v.trips=item.second.trips;v.pose=model.pose(item.first);
@@ -128,6 +130,12 @@ void Runtime::tick(float dt) {
             for(const auto& f:g->board().fruits()) {flight|=f.second.phase==FruitPhase::Collecting;refill|=f.second.phase==FruitPhase::Moving;}
             if(flight && !sawFlight_) {sawFlight_=true;capture(prefix+"_collecting.png",[]{});break;}
             if(refill && !sawRefill_) {sawRefill_=true;capture(prefix+"_refilling.png",[]{});break;}
+            if(stage_==13 && !sawSpawn_) {
+                for(const auto& f:g->board().fruits()) if(f.second.spawning &&
+                    g->traffic().now()>=f.second.start+.04 && g->traffic().now()<f.second.start+.10) {
+                    sawSpawn_=true;capture("rectangular_spawning.png",[]{});return;
+                }
+            }
             if(!g->idle()) break;
             if(tripActive_) {
                 const auto& w=level.witness.at(witnessIndex_);finishWitness(*g,w,pickupStart_);
@@ -135,7 +143,7 @@ void Runtime::tick(float dt) {
                 if(g->traffic().state(w.vehicle).phase==VehiclePhase::Waiting && !sawWaiting_) {sawWaiting_=true;capture(prefix+"_partial_waiting.png",[]{});break;}
             }
             if(witnessIndex_==level.witness.size()) {
-                if(g->outcome()!=Outcome::Won || !sawFlight_ || !sawRefill_ || !sawWaiting_) throw std::runtime_error("Incomplete gameplay scene coverage");
+                if(g->outcome()!=Outcome::Won || !sawFlight_ || !sawRefill_ || !sawWaiting_ || (stage_==13 && !sawSpawn_)) throw std::runtime_error("Incomplete gameplay scene coverage");
                 if(stage_==10) capture("circular_won.png",[this,key]{key(EventKeyboard::KeyCode::KEY_R);stage_=2;});
                 else capture("rectangular_won.png",[this,key]{key(EventKeyboard::KeyCode::KEY_ESCAPE);stage_=5;});
                 break;
@@ -148,7 +156,7 @@ void Runtime::tick(float dt) {
         case 4: capture("rectangular_initial.png",[this]{witnessIndex_=0;tripActive_=false;sawFlight_=sawRefill_=sawWaiting_=false;stage_=13;}); break;
         case 5: {
             size_t expectedSteps=0;for(const auto& level:catalog_.levels()) expectedSteps+=level.witness.size();
-            if(menuVisits_!=3 || reloads_!=1 || views_.size()!=3 || screenshots_.size()!=12 || keyEvents_!=5 || trafficChecks_.size()!=10 || stepObservations_.size()!=expectedSteps)
+            if(menuVisits_!=3 || reloads_!=1 || views_.size()!=3 || screenshots_.size()!=13 || keyEvents_!=5 || trafficChecks_.size()!=10 || stepObservations_.size()!=expectedSteps)
                 throw std::runtime_error("Navigation coverage incomplete");
             passed_=true; writeReport(); Director::getInstance()->end(); break;
         }
@@ -261,6 +269,7 @@ void Runtime::writeReport() {
         item.AddMember("capture",s(audit.capture),a);item.AddMember("levelId",s(audit.levelId),a);
         item.AddMember("time",audit.time,a);item.AddMember("roadUsed",audit.road,a);item.AddMember("waitingUsed",audit.waiting,a);
         item.AddMember("paused",audit.paused,a);
+        item.AddMember("spawnSeed",audit.spawnSeed,a);item.AddMember("spawning",audit.spawning,a);
         item.AddMember("remaining",audit.remaining,a);item.AddMember("collected",audit.collected,a);item.AddMember("reserved",audit.reserved,a);
         item.AddMember("pickups",audit.pickups,a);item.AddMember("outcome",s(audit.outcome),a);
         rapidjson::Value cursors(kArrayType);for(int n:audit.entranceCursors) cursors.PushBack(n,a);item.AddMember("entranceCursors",cursors,a);

@@ -3,6 +3,7 @@
 #include <map>
 #include <string>
 #include <vector>
+#include <cstdint>
 
 namespace farm {
 struct Asset {
@@ -58,6 +59,7 @@ struct Road {
     std::vector<cocos2d::Vec2> points;
 };
 struct Level {
+    uint32_t spawnSeed=20261026;
     std::string id, title, mode, backgroundKey, boardKey;
     int initial = 0, future = 0, total = 0;
     std::vector<FruitSlot> fruit;

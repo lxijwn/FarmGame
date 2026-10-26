@@ -1,0 +1,10 @@
+{
+  "status": "passed",
+  "seedCount": 64,
+  "firstSeed": 1,
+  "lastSeed": 64,
+  "distinctFirstEntranceOrders": 23,
+  "minLaunches": 12,
+  "maxLaunches": 16,
+  "scope": "serial winning witness found and replayed for each sampled seed; not a proof for every seed or every player order"
+}

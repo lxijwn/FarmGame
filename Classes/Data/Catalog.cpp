@@ -63,7 +63,8 @@ void Catalog::load(const std::string& root) {
     if(!root_.empty() && root_.back()!='/') root_+='/';
     assets_.clear(); levels_.clear();
     auto rules=read(root_+"config/rules.v1.json");
-    need(str(rules,"rulesVersion")=="1.2.0","Unsupported rules version");
+    need(str(rules,"rulesVersion")=="1.3.0","Unsupported rules version");
+    need(str(field(rules,"rectangular"),"entranceGeneration")=="finite_random_bag_without_replacement","Unsupported entrance generation");
     need(str(field(rules,"circular"),"refillPolicy")=="stable_radial_columns","Unsupported circular refill policy");
     const auto& admission=field(rules,"admission");
     const auto& animation=field(rules,"animations");
@@ -107,7 +108,7 @@ void Catalog::load(const std::string& root) {
         Level l;
         l.id=str(data,"id"); l.title=str(data,"title"); l.mode=str(data,"mode");
         need(integer(field(data,"schemaVersion"))==1,"Unsupported level schema");
-        need(str(data,"rulesVersion")=="1.2.0","Level rules mismatch");
+        need(str(data,"rulesVersion")=="1.3.0","Level rules mismatch");
         need(l.id==str(entry,"id") && levelIds.insert(l.id).second,"Invalid/duplicate level ID");
         need(l.mode=="circular" || l.mode=="rectangular","Unknown layout mode");
         const auto& road=field(data,"road");
@@ -182,6 +183,10 @@ void Catalog::load(const std::string& root) {
                 if(entrance.IsNull()) continue;
                 unique(str(entrance,"id"));
                 Entrance e;
+                need(str(entrance,"generation")=="finite_random_bag_without_replacement","Unsupported entrance bag");
+                need(str(entrance,"spawnOrigin")=="farthest_horizontal_slot","Unsupported spawn origin");
+                l.spawnSeed=uint32_t(integer(field(board,"randomSeed")));
+                need(l.spawnSeed!=0,"Random seed must be nonzero");
                 e.group=gi;l.groups[gi].entrance=int(l.entrances.size());
                 e.position=point(field(entrance,"position")); e.inward=point(field(entrance,"inwardDirection"));
                 need(std::abs(e.inward.x)+std::abs(e.inward.y)==1,"Invalid entrance direction");

@@ -16,18 +16,31 @@ FruitPose interpolate(const FruitPose& a,const FruitPose& b,float t) {
     p.rotation=a.rotation+delta*t;p.opacity=blend(a.opacity,b.opacity,t);return p;
 }
 }
-BoardModel::BoardModel(const Level& level,const TrafficRules& rules):level_(level),rules_(rules) {reset();}
+BoardModel::BoardModel(const Level& level,const TrafficRules& rules,uint32_t spawnSeed)
+    :level_(level),rules_(rules),spawnSeed_(spawnSeed?spawnSeed:level.spawnSeed) {reset();}
 void BoardModel::reset() {
     fruits_.clear();slots_.assign(level_.fruit.size(),"");cursors_.assign(level_.entrances.size(),0);
     groupReady_.assign(level_.groups.size(),0);collected_=0;serial_=0;
+    spawnBags_.clear();
     for(size_t i=0;i<level_.fruit.size();++i) {
         const auto& def=level_.fruit[i];if(def.entityId.empty()) continue;
         FruitState fruit;fruit.id=def.entityId;fruit.color=def.color;fruit.slot=int(i);fruit.phase=FruitPhase::Settled;
         require(fruits_.emplace(fruit.id,fruit).second,"Duplicate initial fruit");slots_[i]=fruit.id;
     }
-    for(const auto& entrance:level_.entrances) for(const auto& def:entrance.sequence) {
-        FruitState fruit;fruit.id=def.id;fruit.color=def.color;
-        require(fruits_.emplace(fruit.id,fruit).second,"Duplicate future fruit");
+    for(const auto& entrance:level_.entrances) {
+        std::vector<std::string> bag;
+        for(const auto& def:entrance.sequence) {
+            FruitState fruit;fruit.id=def.id;fruit.color=def.color;bag.push_back(def.id);
+            require(fruits_.emplace(fruit.id,fruit).second,"Duplicate future fruit");
+        }
+        // Independent random bags keep each row's result independent of traffic timing.
+        uint32_t state=spawnSeed_^uint32_t((spawnBags_.size()+1)*0x9e3779b9u);
+        if(!state) state=1;
+        for(size_t i=bag.size();i>1;--i) {
+            state^=state<<13;state^=state>>17;state^=state<<5;
+            std::swap(bag[i-1],bag[state%i]);
+        }
+        spawnBags_.push_back(std::move(bag));
     }
     require(int(fruits_.size())==level_.total,"Fruit definitions/target mismatch");
     if(!level_.road.circular) for(size_t i=0;i<level_.groups.size();++i) refill(int(i),0);
@@ -98,7 +111,7 @@ void BoardModel::moveTo(FruitState& fruit,int dest,const FruitPose& from,double 
     require(slots_.at(dest).empty(),"Refill destination occupied");
     fruit.phase=FruitPhase::Moving;fruit.slot=dest;fruit.start=time;fruit.end=time+rules_.refillSeconds;
     fruit.from=from;fruit.to=slotPose(dest);fruit.serial=++serial_;slots_[dest]=fruit.id;
-    groupReady_[level_.fruit[dest].group]=fruit.end;
+    auto& ready=groupReady_[level_.fruit[dest].group];ready=std::max(ready,fruit.end);
 }
 void BoardModel::refill(int group,double time,int radialColumn) {
     if(level_.road.circular) {
@@ -135,11 +148,15 @@ void BoardModel::refill(int group,double time,int radialColumn) {
     }
     if(g.entrance<0) return;
     const auto& e=level_.entrances.at(g.entrance);auto& cursor=cursors_[g.entrance];
+    int generated=0;
     while(count<g.slots.size() && cursor<int(e.sequence.size())) {
-        auto& f=fruits_.at(e.sequence[cursor++].id);
-        require(f.phase==FruitPhase::Future,"Entrance sequence consumed twice");
-        const int dest=g.slots[count++];auto from=slotPose(dest);from.position=e.position;
-        moveTo(f,dest,from,time);
+        auto& f=fruits_.at(spawnBags_[g.entrance][cursor++]);
+        require(f.phase==FruitPhase::Future,"Entrance bag consumed twice");
+        const int dest=g.slots[count++];auto from=slotPose(g.slots.back());
+        from.size=cocos2d::Size(0,0);from.opacity=0;
+        // Existing fruit settles first. Every new block pops at the farthest
+        // horizontal slot, then slides inward to its free destination.
+        moveTo(f,dest,from,time+rules_.refillSeconds+generated++*.10);f.spawning=true;
     }
 }
 void BoardModel::finishEvents(double time,TrafficModel& traffic) {
@@ -152,7 +169,7 @@ void BoardModel::finishEvents(double time,TrafficModel& traffic) {
     std::set<int> refillGroups,refillRays;
     for(const auto& id:due) {
         auto& f=fruits_.at(id);
-        if(f.phase==FruitPhase::Moving) {f.phase=FruitPhase::Settled;continue;}
+        if(f.phase==FruitPhase::Moving) {f.phase=FruitPhase::Settled;f.spawning=false;continue;}
         const int old=f.slot;const int group=level_.fruit[old].group;
         require(slots_[old]==f.id,"Collected fruit lost its slot");
         slots_[old].clear();f.slot=-1;f.phase=FruitPhase::Collected;++collected_;
@@ -176,6 +193,15 @@ FruitPose BoardModel::pose(const FruitState& f,const TrafficModel& traffic) cons
     if(f.phase==FruitPhase::Future || f.phase==FruitPhase::Collected) return {};
     const float t=float(std::max(0.0,std::min(1.0,(traffic.now()-f.start)/(f.end-f.start))));
     auto to=f.to;
+    if(f.spawning) {
+        auto result=to;
+        if(t<.45f) {
+            const float u=t/.45f;
+            const float scale=u<.75f?u/.75f*1.15f:1.15f-(u-.75f)*.6f;
+            result.position=f.from.position;result.size=to.size*scale;result.opacity=255*std::min(1.f,u*2);
+        } else result.position=f.from.position.lerp(to.position,(t-.45f)/.55f);
+        return result;
+    }
     if(f.phase==FruitPhase::Collecting) {to.position=traffic.pose(f.vehicle).position;to.size=cocos2d::Size(7,7);to.rotation=f.from.rotation;to.opacity=170;}
     auto result=interpolate(f.from,to,t);
     if(f.phase==FruitPhase::Collecting) result.position.y+=std::sin(float(3.141592653589793*t))*22;
@@ -201,8 +227,8 @@ void BoardModel::checkInvariants(const TrafficModel& traffic) const {
         require(v.second.reserved==reservations[v.first],"Fruit/vehicle reservation mismatch");}
     require(int(fruits_.size())==level_.total && collected==collected_ && loaded==collected && vehicleReserved==reserved,"Fruit/load conservation failed");
     for(size_t i=0;i<level_.entrances.size();++i) for(size_t j=0;j<level_.entrances[i].sequence.size();++j) {
-        const auto& f=fruits_.at(level_.entrances[i].sequence[j].id);
-        require((f.phase==FruitPhase::Future)==(int(j)>=cursors_[i]),"Entrance order/cursor mismatch");
+        const auto& f=fruits_.at(spawnBags_[i][j]);
+        require((f.phase==FruitPhase::Future)==(int(j)>=cursors_[i]),"Entrance bag/cursor mismatch");
     }
 }
 }

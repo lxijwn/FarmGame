@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "rulesVersion": "1.2.0",
+  "rulesVersion": "1.3.0",
   "id": "rectangular_01",
   "mode": "rectangular",
   "title": "折返农场",
@@ -75,6 +75,7 @@
   },
   "board": {
     "type": "direct_contact_chains",
+    "randomSeed": 20261026,
     "chains": [
       {
         "id": "r_row0_left",
@@ -285,6 +286,8 @@
             "orange",
             "purple"
           ],
+          "generation": "finite_random_bag_without_replacement",
+          "spawnOrigin": "farthest_horizontal_slot",
           "sequence": [
             {
               "id": "r_row1_left_spawn_0",
@@ -499,6 +502,8 @@
             "orange",
             "purple"
           ],
+          "generation": "finite_random_bag_without_replacement",
+          "spawnOrigin": "farthest_horizontal_slot",
           "sequence": [
             {
               "id": "r_row2_right_spawn_0",
@@ -924,6 +929,8 @@
             "orange",
             "purple"
           ],
+          "generation": "finite_random_bag_without_replacement",
+          "spawnOrigin": "farthest_horizontal_slot",
           "sequence": [
             {
               "id": "r_row5_right_spawn_0",
@@ -1040,6 +1047,8 @@
             "orange",
             "purple"
           ],
+          "generation": "finite_random_bag_without_replacement",
+          "spawnOrigin": "farthest_horizontal_slot",
           "sequence": [
             {
               "id": "r_row6_left_spawn_0",

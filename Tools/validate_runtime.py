@@ -12,8 +12,8 @@ def main():
     report = json.loads((args.directory/'runtime-report.json').read_text(encoding='utf-8'))
     assert report['status'] == 'passed', report
     assert report['mode'] == 'smoke' and report['frames'] >= 180
-    assert len(report['trafficChecks']) == 10 and len(report['gameplayChecks']) == 19
-    for text in ('same-color batch', 'simultaneous left/right', 'endpoint waits'):
+    assert len(report['trafficChecks']) == 10 and len(report['gameplayChecks']) == 21
+    for text in ('same-color batch', 'simultaneous left/right', 'endpoint waits', 'random bag', 'tail pop'):
         assert any(text in check for check in report['gameplayChecks']), text
     assert report['trafficInputs'] == 0, 'External clicks must not change automatic input'
     assert report['assetFrames'] == 33 and report['levelCount'] == 2
@@ -30,8 +30,8 @@ def main():
     names = ['01_mode_selection.png', '02_circular.png', 'circular_collecting.png',
              'circular_refilling.png', 'circular_partial_waiting.png', 'circular_won.png',
              'circular_reloaded.png', 'rectangular_initial.png', 'rectangular_collecting.png',
-             'rectangular_refilling.png', 'rectangular_partial_waiting.png', 'rectangular_won.png']
-    assert report['screenshots'] == names, report['screenshots']
+             'rectangular_refilling.png', 'rectangular_spawning.png', 'rectangular_partial_waiting.png', 'rectangular_won.png']
+    assert set(report['screenshots']) == set(names) and len(report['screenshots'])==len(names), report['screenshots']
     images = {}
     for name in names:
         image = Image.open(args.directory/name).convert('RGB')
@@ -40,6 +40,7 @@ def main():
         images[name] = image
     assert images['02_circular.png'].tobytes() == images['circular_reloaded.png'].tobytes()
     observations = {o['capture']: o for o in report['trafficObservations']}
+    assert observations['rectangular_spawning.png']['spawning']>0
     assert set(observations) == set(names[1:])
     for mode, total, cursors in [('circular', 48, []), ('rectangular', 64, [4, 4, 4, 4])]:
         flight = observations[mode+'_collecting.png']
@@ -67,10 +68,10 @@ def main():
     result = dict(status='passed', checks=[
         '33 atlas frames loaded; both configured layouts instantiated',
         'five Cocos navigation events; reload restores identical framebuffer',
-        '12 nonblank framebuffers including collection, refill, partial return and two wins',
+        '13 nonblank framebuffers including collection, refill, tail pop, partial return and two wins',
         f'{len(report["witnessObservations"])} scene launches match exact fruit IDs/slots, loads, bindings and remaining targets',
         '48 circular and 64 rectangular targets collected; finite entrances exhausted',
-        '10 C++ traffic groups and 19 gameplay groups including horizontal blocking and open endpoint return'],
+        '10 C++ traffic groups and 21 gameplay groups including seeded random bags and tail pop'],
         scope='C++ gameplay and rendered scene validation; Cocos key routing')
     (args.directory/'evidence-check.json').write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(result, ensure_ascii=False, indent=2))

@@ -1,7 +1,8 @@
 {
   "schemaVersion": 1,
   "levelId": "circular_01",
-  "levelSha256": "e8faccb0b65cca9665f9d597a0d4a99a38b05a085fe03704b05ca3a97b5070b0",
+  "randomSeed": 20261026,
+  "levelSha256": "795d98355798da0e183614ae88d4ab74450e461b42d9197382e45d82df95e3f9",
   "scope": "serial data witness; independent C++ scene validation is recorded in latest-verification.json",
   "inputPolicy": "one_vehicle_at_a_time_wait_until_all_idle",
   "validation": {

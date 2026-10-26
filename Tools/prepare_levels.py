@@ -20,7 +20,7 @@ def vehicle(identifier, color, size):
 
 def common(identifier, mode, title):
     return {
-        'schemaVersion': 1, 'rulesVersion': '1.2.0', 'id': identifier,
+        'schemaVersion': 1, 'rulesVersion': '1.3.0', 'id': identifier,
         'mode': mode, 'title': title, 'designSize': [600, 900],
         'ruleConfig': 'config/rules.v1.json',
         'backgroundAssetKey': 'background.farm',
@@ -109,6 +109,8 @@ def rectangular():
                     'position':[anchor[0]+normal[0]*(44*count+24),y],
                     'inwardDirection':[-normal[0],-normal[1]],
                     'candidatePool':COLORS,
+                    'generation':'finite_random_bag_without_replacement',
+                    'spawnOrigin':'farthest_horizontal_slot',
                     'sequence':[{'id':f'{identifier}_spawn_{i}', 'color':COLORS[(row+i)%4]} for i in range(4)],
                 }
             chains.append({
@@ -116,7 +118,7 @@ def rectangular():
                 'contactAnchor':anchor,'outwardNormal':normal,
                 'contactProgress':(y-390)/400, 'slots':slots, 'entrance':entrance,
             })
-    level['board']={'type':'direct_contact_chains','chains':chains}
+    level['board']={'type':'direct_contact_chains','randomSeed':20261026,'chains':chains}
     level['vehicles']=[
         vehicle('r_green_s','green','small'), vehicle('r_green_l','green','large'),
         vehicle('r_yellow_s','yellow','small'), vehicle('r_yellow_l','yellow','large'),

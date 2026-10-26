@@ -216,6 +216,48 @@ std::vector<std::string> checkGameplay(const Catalog& catalog) {
         check(g.outcome()==Outcome::Stuck,"true no-progress state ends game");
         checks.push_back("stuck: idle mismatch with no new vehicles is detected");
     }
+    {
+        auto level=catalog.level("rectangular_01");
+        const auto group=level.groups[level.entrances[0].group];
+        check(group.slots.size()==4,"random bag fixture needs four destinations");
+        for(int slot:group.slots) level.fruit[slot].entityId.clear();
+        level.total-=4;level.initial-=4;
+        std::set<std::vector<std::string>> orders;
+        for(uint32_t seed=1;seed<=12;++seed) {
+            BoardModel a(level,rules,seed),b(level,rules,seed);
+            check(a.slots()==b.slots(),"same seed reproduces random order");
+            std::vector<std::string> order;std::set<std::string> colors;
+            for(int slot:group.slots) {order.push_back(a.slots()[slot]);colors.insert(a.fruits().at(a.slots()[slot]).color);}
+            check(colors.size()==4 && a.futureCount(0)==0,"random bag preserves all four colors without replacement");
+            orders.insert(order);a.reset();check(a.slots()==b.slots(),"fixed-seed reset reproduces bag");
+            TrafficModel traffic(level,rules);a.checkInvariants(traffic);
+        }
+        check(orders.size()>1,"different seeds change generated order");
+        checks.push_back("rectangle random bag: seed reproducibility, different orders, no replacement, finite color balance and reset");
+    }
+    {
+        auto level=catalog.level("rectangular_01");
+        const auto group=level.groups[level.entrances[0].group];const int front=group.slots.front(),tail=group.slots.back();
+        level.fruit[front].color="green";
+        TrafficModel traffic(level,rules);BoardModel board(level,rules);
+        auto id=level.columns[0][0];traffic.launch(id);traffic.advance(rules.enterSeconds);
+        check(traffic.reserveCapacity(id,1),"reserve front for spawn fixture");board.reserveFruit(front,id,traffic.now());
+        traffic.advance(rules.collectSeconds);board.finishEvents(traffic.now(),traffic);
+        const auto spawned=board.slots()[tail];const auto& f=board.fruits().at(spawned);
+        check(f.spawning && f.phase==FruitPhase::Moving && board.futureCount(0)==3,"one removal draws one future block");
+        check(board.pose(f,traffic).size.width==0 && f.from.position==level.fruit[tail].center,"new block hidden at farthest horizontal slot");
+        check(board.slots()[front]==level.fruit[group.slots[1]].entityId,"old block refills front first");
+        traffic.advance(rules.refillSeconds+.06);board.finishEvents(traffic.now(),traffic);
+        const auto pose=board.pose(f,traffic);
+        check(pose.position==level.fruit[tail].center && pose.size.width>0,"tail pop appears at farthest end before sliding");
+        check(!board.canTake(front,"green",traffic.now()),"spawn locks chain until settled");
+        traffic.setPaused(true);const auto before=board.pose(f,traffic);traffic.advance(10);
+        check(board.pose(f,traffic).size.equals(before.size),"pause freezes tail pop");traffic.setPaused(false);
+        traffic.advance(rules.refillSeconds);board.finishEvents(traffic.now(),traffic);
+        check(board.idle() && f.phase==FruitPhase::Settled && !f.spawning,"tail pop settles once");
+        board.checkInvariants(traffic);
+        checks.push_back("rectangle tail pop: farthest spawn origin, old fruit moves first, visible pop, chain lock, pause and conservation");
+    }
     return checks;
 }
 }

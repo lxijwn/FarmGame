@@ -1,5 +1,5 @@
 {
-  "rulesVersion": "1.2.0",
+  "rulesVersion": "1.3.0",
   "purpose": "First playable Farm demo development baseline",
   "platform": "windows",
   "engineVersion": "cocos2d-x-3.17.2",
@@ -93,7 +93,7 @@
     "collectAcrossGapAllowed": false,
     "refillOrder": "stable_horizontal_order_toward_channel_within_same_row_side",
     "crossChainMovementEnabled": false,
-    "entranceGeneration": "finite_explicit_sequence_validated_against_candidate_pool",
+    "entranceGeneration": "finite_random_bag_without_replacement",
     "refillTriggers": [
       "initialization",
       "completed_collection_in_chain"
@@ -102,7 +102,10 @@
     "consumeSequenceWithoutSpace": false,
     "changeExistingFruitColor": false,
     "roadTopology": "open_folded_entrance_to_endpoint",
-    "unfilledAtEndpoint": "return_to_bound_waiting_slot_preserving_load"
+    "unfilledAtEndpoint": "return_to_bound_waiting_slot_preserving_load",
+    "spawnOrigin": "farthest_horizontal_slot",
+    "spawnAnimation": "pop_at_tail_after_existing_refill_then_slide_inward",
+    "randomSeedPolicy": "fresh_seed_per_manual_restart_fixed_seed_for_verification"
   },
   "outcome": {
     "victoryRequiresEmptyBoard": true,

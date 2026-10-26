@@ -48,6 +48,14 @@ class Model:
                     assert fruit['color'] in entrance['candidatePool']
                     self.entities[fruit['id']] = fruit['color']
                     sequence.append(fruit['id'])
+                assert entrance['generation']=='finite_random_bag_without_replacement'
+                state=(level['board']['randomSeed'] ^ ((sum(bool(e) for e in self.entrances)+1)*0x9e3779b9)) & 0xffffffff
+                state=state or 1
+                for i in range(len(sequence),1,-1):
+                    state ^= (state<<13)&0xffffffff
+                    state ^= state>>17
+                    state ^= (state<<5)&0xffffffff
+                    sequence[i-1],sequence[state%i]=sequence[state%i],sequence[i-1]
             self.entrances.append(sequence)
         for v in self.vehicles:
             self.unique(v['id'])
@@ -73,6 +81,8 @@ class Model:
         progress = sorted(set(p for p,_ in self.contacts))
         self.min_gap = min((b-a)*lap for a,b in zip(progress,progress[1:]))
         self.settle = self.rules['animations']['collectSeconds'] + self.rules['animations']['refillSeconds']
+        if not self.circular:
+            self.settle += self.rules['animations']['refillSeconds'] + .1*max(len(g)-1 for g in self.groups)
         assert self.min_gap > self.settle, 'Use an event-driven simulator for tighter contact spacing'
         self.check_geometry()
 
@@ -255,7 +265,7 @@ class Model:
             # All transactions finish before the next input. Final-contact refill
             # may outlive the lap; the wait includes it and return/exit animation.
             last = events[-1]['progress']*10 if events else 0
-            duration = .25 + (last+.48 if full else max(10.3,last+self.settle))
+            duration = .25 + max(last+.48 if full else 10.3,last+self.settle)
             item = {
                 'step':step,'vehicleId':self.vehicles[vi]['id'],
                 'action':'launch_from_parking' if is_new else 'relaunch_from_waiting',
@@ -291,6 +301,7 @@ def main():
         actions, visited = model.solve()
         steps, result = model.replay(actions)
         solution = {'schemaVersion':1,'levelId':level['id'],
+                    'randomSeed':level['board'].get('randomSeed',20261026),
                     'levelSha256':hashlib.sha256(path.read_bytes()).hexdigest(),
                     'scope':report['scope'],'inputPolicy':'one_vehicle_at_a_time_wait_until_all_idle',
                     'validation':result,'steps':steps}
@@ -307,6 +318,20 @@ def main():
         print(level['id'],result,'searchedStates',visited,flush=True)
     write_json(ROOT/'Validation'/'levels_report.json',report)
     (ROOT/'Validation'/'通关操作.md').write_text('\n'.join(lines)+'\n',encoding='utf-8')
+    # Random play changes only the finite bag order. Exercise several orders
+    # independently of the fixed seed used by the exact C++ scene witness.
+    level=json.loads((RES/'levels/rectangular_01.json').read_text(encoding='utf-8'))
+    launches,orders=[],set()
+    for seed in range(1,65):
+        level['board']['randomSeed']=seed
+        model=Model(level)
+        actions,_=model.solve()
+        model.replay(actions)
+        launches.append(len(actions));orders.add(tuple(next(e for e in model.entrances if e)))
+    write_json(ROOT/'Validation/random_spawn_report.json',dict(status='passed',seedCount=64,firstSeed=1,lastSeed=64,
+        distinctFirstEntranceOrders=len(orders),minLaunches=min(launches),maxLaunches=max(launches),
+        scope='serial winning witness found and replayed for each sampled seed; not a proof for every seed or every player order'))
+    print('64 random seed solutions passed; launch counts',min(launches),max(launches),flush=True)
 
 
 if __name__ == '__main__':

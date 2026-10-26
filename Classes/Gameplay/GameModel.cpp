@@ -9,8 +9,8 @@ constexpr double eps=1e-7;
 void require(bool condition,const char* message) {if(!condition) throw std::logic_error(message);}
 }
 const char* outcomeName(Outcome o) {return o==Outcome::Won?"won":o==Outcome::Stuck?"stuck":"running";}
-GameModel::GameModel(const Level& level,const TrafficRules& rules)
-    :level_(level),rules_(rules),traffic_(level,rules),board_(level,rules) {
+GameModel::GameModel(const Level& level,const TrafficRules& rules,uint32_t spawnSeed)
+    :level_(level),rules_(rules),traffic_(level,rules),board_(level,rules,spawnSeed) {
     if(level.road.circular) for(int slot:level.groups.at(0).slots) contacts_.push_back({level.fruit[slot].contact,slot});
     else for(const auto& group:level.groups) {require(!group.slots.empty(),"Empty refill chain");contacts_.push_back({group.contact,group.slots[0]});}
     for(const auto& c:contacts_) require(c.progress>=0 && c.progress<1,"Contact progress outside single lap");

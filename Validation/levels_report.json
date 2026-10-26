@@ -15,15 +15,15 @@
     },
     {
       "id": "rectangular_01",
-      "searchedStates": 11,
+      "searchedStates": 15,
       "status": "passed",
       "collected": 64,
-      "launchCount": 11,
-      "relaunchCount": 3,
-      "peakBoundWaitingSlots": 3,
+      "launchCount": 15,
+      "relaunchCount": 7,
+      "peakBoundWaitingSlots": 4,
       "minContactGapSeconds": 1.25,
-      "collectPlusRefillSeconds": 0.42,
-      "estimatedSeconds": 96.24
+      "collectPlusRefillSeconds": 1.16,
+      "estimatedSeconds": 135.83
     }
   ]
 }

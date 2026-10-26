@@ -7,7 +7,7 @@ const char* outcomeName(Outcome outcome);
 struct PickupEvent {double time=0;std::string vehicle,fruit;int slot=-1;};
 class GameModel {
 public:
-    GameModel(const Level& level,const TrafficRules& rules);
+    GameModel(const Level& level,const TrafficRules& rules,uint32_t spawnSeed=0);
     void reset();
     LaunchResult launch(const std::string& vehicle);
     void advance(double seconds);

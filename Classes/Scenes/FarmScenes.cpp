@@ -4,6 +4,7 @@
 #include "Gameplay/GameModel.h"
 #include <cmath>
 #include <stdexcept>
+#include <random>
 
 namespace farm {
 using namespace cocos2d;
@@ -71,7 +72,8 @@ Scene* makeModeScene(Runtime& runtime) {
 namespace {
 class TrafficScene final : public Scene {
 public:
-    TrafficScene(Runtime& runtime,const Level& level) : runtime_(runtime),level_(level),model_(level,runtime.catalog().trafficRules()) {}
+    TrafficScene(Runtime& runtime,const Level& level) : runtime_(runtime),level_(level),
+        model_(level,runtime.catalog().trafficRules(),runtime.fixedSpawnSeed()?level.spawnSeed:(std::random_device{}()|1u)) {}
     GameModel& model() { return model_; }
     bool init() override;
     void update(float dt) override {

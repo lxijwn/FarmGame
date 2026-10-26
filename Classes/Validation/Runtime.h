@@ -23,8 +23,9 @@ public:
     void recordTrafficInput(const std::string& id,LaunchResult result);
     int exitCode() const { return failed_ ? 1 : 0; }
     bool manualInputEnabled() const { return !options_.smoke; }
+    bool fixedSpawnSeed() const {return options_.smoke || options_.demo;}
     bool keyInputEnabled() const { return !options_.smoke || injectingKey_; }
-    float simulationSpeed() const {return !options_.smoke?1.f:captureBusy_?0.f:(!sawFlight_ || !sawRefill_)?3.f:12.f;}
+    float simulationSpeed() const {return !options_.smoke?1.f:captureBusy_?0.f:(!sawFlight_ || !sawRefill_ || (current_=="rectangular_01" && !sawSpawn_))?3.f:12.f;}
     double simulationDelta(float dt) const {return options_.demo?(captureBusy_?0.0:1.0/30.0):dt*simulationSpeed();}
 private:
     void tick(float dt);
@@ -35,6 +36,8 @@ private:
     void writeReport();
     struct VehicleAudit {std::string id,phase;int slot=0,loaded=0,trips=0;Pose pose;};
     struct TrafficAudit {
+        uint32_t spawnSeed=0;
+        int spawning=0;
         std::string capture,levelId;
         double time=0;
         int road=0,waiting=0,remaining=0,collected=0,reserved=0,pickups=0;
@@ -60,6 +63,7 @@ private:
     std::vector<StepAudit> stepObservations_;
     size_t witnessIndex_=0,pickupStart_=0;
     bool tripActive_=false,sawFlight_=false,sawRefill_=false,sawWaiting_=false;
+    bool sawSpawn_=false;
     int demoFrames_=0,demoHoldUntil_=30;
     std::vector<TrafficAudit> trafficObservations_;
     std::string trafficVehicle_,lastTrafficInput_;
