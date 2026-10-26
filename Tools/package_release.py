@@ -92,10 +92,7 @@ def main():
         copy_tree(ROOT/directory, project/directory)
     for name in ('CMakeLists.txt', 'README.md', '.gitignore', '启动预览.cmd', '重新编译.cmd', '完整验证.cmd'):
         shutil.copy2(ROOT/name, project/name)
-    for name in ('Farm测试题_提交版.md', 'Farm_首版规则.md', '首版规则配置.json',
-                 '关卡与资源说明.md', '果蔬收集与补位说明.md'):
-        shutil.copy2(TASK/name, source/name)
-    for name in ('源码编译说明.md', 'Farm测试题_提交版.pdf'):
+    for name in ('Farm测试题_提交版.md', '源码编译说明.md', 'Farm测试题_提交版.pdf'):
         shutil.copy2(OUT/name, source/name)
     companion = source/'交付材料'
     companion.mkdir()
@@ -112,7 +109,7 @@ def main():
     copy_tree(runtime/'licenses', source/'licenses')
     validation = project/'Validation'
     validation.mkdir()
-    for name in ('latest-verification.json', 'levels_report.json', 'assets_report.json', '通关操作.md'):
+    for name in ('latest-verification.json', 'levels_report.json', 'assets_report.json', 'random_spawn_report.json', '通关操作.md'):
         shutil.copy2(ROOT/'Validation'/name, validation/name)
     original_run = Path(latest['runDirectory'])
     selected = validation/'runs'/latest['runId']
@@ -129,7 +126,8 @@ def main():
     source_zip = OUT/'FarmDemo_源码与答题.zip'
     source_entries = archive(source, source_zip)
     manifest = dict(status='passed', createdAt=datetime.now().astimezone().isoformat(),
-                    scope='local delivery candidate; not externally submitted',
+                    scope='v1.3 final delivery; source and video synchronized to GitHub',
+                    rulesVersion='1.3.0',
                     executableSha256=digest(app/'FarmGame.exe'),
                     originalVerification=latest['runId'],
                     extractedRuntimeEvidence=str(evidence/'runtime-report.json'),
@@ -141,7 +139,7 @@ def main():
                             'submission PDF has five rendered and visually reviewed pages'],
                     runtimeZipEntries=runtime_entries, sourceZipEntries=source_entries,
                     videoFrames=movie['frames'], videoSeconds=movie['durationSeconds'], files=[])
-    deliverables = [runtime_zip, source_zip, video, video.with_suffix('.json'), OUT/'Farm测试题_提交版.pdf',
+    deliverables = [runtime_zip, source_zip, video, video.with_suffix('.json'), OUT/'Farm测试题_提交版.pdf', OUT/'Farm测试题_提交版.md',
                     OUT/'先读我.md', OUT/'源码编译说明.md']
     for path in deliverables:
         manifest['files'].append(dict(name=path.name, bytes=path.stat().st_size, sha256=digest(path)))
